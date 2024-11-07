@@ -8,11 +8,3 @@ def home(request):
 def about(request):
    # return HttpResponse ("This is my about page (/about)") #
     return render(request, 'home/about.html')
-
-def services(request):
-   # return HttpResponse ("This is my services page (/services)") #
-    return render(request, 'home/services.html')
-
-def contact(request):
-  #  return HttpResponse ("This is my contact page (/contact)")  #
-    return render(request, 'home/contact.html')
