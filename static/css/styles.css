@@ -1,6 +1,6 @@
 /* Home */ 
 .carousel-item img {
-    height: 500px; 
+    height: 10px; 
     width: 100%; 
     object-fit: contain; 
   }
