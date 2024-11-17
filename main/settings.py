@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'home',
     'services',
     'contact',
-    'checkout',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -65,6 +64,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com' 
+EMAIL_PORT = 587  
+EMAIL_USE_TLS = True  
+EMAIL_USE_SSL = False  
+EMAIL_HOST_USER = '29meganroberts@gmail.com' 
+EMAIL_HOST_PASSWORD = 'mwxuaxgzeyilvjpu' 
 
 ROOT_URLCONF = 'main.urls'
 
