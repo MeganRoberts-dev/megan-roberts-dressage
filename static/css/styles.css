@@ -1,95 +1,495 @@
-/* Home */ 
-.carousel-item img {
-    height: 300px; 
-    width: 100%; 
-    object-fit: contain; 
+/* General Layout for Body */
+html, body {
+  height: 100%; /* Make sure body takes up full height */
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+  justify-content: space-between; /* Push footer to the bottom */
+}
+
+.main-content {
+  flex: 1; /* This will take all available space between navbar and footer */
+}
+/* --- Navbar --- */
+.navbar {
+  font-size: 2rem;
+  color: #f9f9f9;
+  margin-top: 20px;
+  position: relative;
+  padding: 1rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1030;
+}
+
+nav.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #f9f9f9;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 20px;
+}
+
+.navbar .nav-link {
+  color: #f9f9f9;
+  padding: .5rem .5rem;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover {
+  color: #6dadf1;
+}
+
+.navbar-nav .nav-link.active {
+  color: #6dadf1 !important;
+  font-weight: bold;
+}
+
+.navbar-icons i {
+  margin: 0 5px;
+  font-size: 1.75rem;
+  color: #6dadf1;
+}
+
+.navbar-icons i:hover {
+  color: #ffffff;
+}
+
+.navbar-toggler {
+  color: #6dadf1;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+  color: #6dadf1;
+}
+
+.navbar-toggler:hover {
+  color: #6dadf1;
+}
+
+/* --- Hero Section --- */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+span {
+  color: #6dadf1 !important;
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+}
+
+.hero-section img {
+  width: 100%;
+  height: 110vh !important;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.hero-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: flex-start; 
+  padding-left: 30px; 
+  text-align: left; 
+}
+
+.hero-section .overlay h1 {
+  font-size: 3rem; 
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-section .overlay h4 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.hero-section .overlay .btn {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  background-color: #6dadf1;
+  border: none;
+}
+
+.hero-section .overlay .btn:hover {
+  background-color: #007bff;
+}
+
+/* --- Accomplishments Section --- */
+.accomplishments-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.accomplishments-section .card {
+  border: none;
+  transition: transform 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.accomplishments-section .card:hover {
+  transform: translateY(-10px);
+}
+
+/* --- Map Section --- */
+.map-container iframe {
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- About Me Section --- */
+.about-me {
+  padding: 40px 0;
+}
+
+.about-me .card {
+  border: none;
+  padding-top: 60px; 
+}
+
+.about-me h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #333;
+  padding-top: 60px; 
+}
+
+.about-me .lead {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* --- Accomplishments Section --- */
+.accomplishments-section {
+  padding: 40px 0;
+}
+
+.accomplishments-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.accomplishments-section .card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accomplishments-section .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.accomplishments-section .card .fs-1 {
+  font-size: 3rem;
+}
+
+.accomplishments-section .card h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.accomplishments-section .card p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* --- Card Image --- */
+.card-img-left {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* --- Responsive Styles --- */
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+  .accomplishments-section .card {
+    padding: 15px;
   }
 
-  /* Services */
-  body{margin-top:20px;
-    background:#DCDCDC;
-    }
-    .pricing-content{position:relative;}
-    .pricing_design{
-        position: relative;
-        margin: 0px 15px;
-    }
-    .pricing_design .single-pricing{
-        background:#554c86;
-        padding: 60px 40px;
-        border-radius:30px;
-        box-shadow: 0 10px 40px -10px rgba(0,64,128,.2);
-        position: relative;
-        z-index: 1;
-    }
-    .pricing_design .single-pricing:before{
-        content: "";
-        background-color: #fff;
-        width: 100%;
-        height: 100%;
-        border-radius: 18px 18px 190px 18px;
-        border: 1px solid #eee;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        z-index: -1;
-    }
-    .price-head{}
-    .price-head h2 {
-      margin-bottom: 20px;
-      font-size: 26px;
-      font-weight: 600;
-    }
-    .price-head h1 {
-      font-weight: 600;
-      margin-top: 30px;
-      margin-bottom: 5px;
-    }
-    .price-head span{}
-    
-    .single-pricing ul{list-style:none;margin-top: 30px;}
-    .single-pricing ul li {
-      line-height: 36px;
-    }
-    .single-pricing ul li i {
-      background: #554c86;
-      color: #fff;
-      width: 20px;
-      height: 20px;
-      border-radius: 30px;
-      font-size: 11px;
-      text-align: center;
-      line-height: 20px;
-      margin-right: 6px;
-    }
-    .pricing-price{}
-    
-    .price_btn {
-      background: #554c86;
-      padding: 10px 30px;
-      color: #fff;
-      display: inline-block;
-      margin-top: 20px;
-      border-radius: 2px;
-      -webkit-transition: 0.3s;
-      transition: 0.3s;
-    }
-    .price_btn:hover{background:#0aa1d6;}
-    a{
-    text-decoration:none;    
-    }
-    
-    .section-title {
-        margin-bottom: 60px;
-    }
-    .text-center {
-        text-align: center!important;
-    }
-    
-    .section-title h2 {
-        font-size: 45px;
-        font-weight: 600;
-        margin-top: 0;
-        position: relative;
-        text-transform: capitalize;
-    }
+  .accomplishments-section .card .fs-1 {
+    font-size: 2.5rem;
+  }
+
+  .accomplishments-section h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile (<= 767px) */
+@media (max-width: 767px) {
+  .accomplishments-section .card {
+    padding: 15px;
+  }
+
+  .accomplishments-section .card .fs-1 {
+    font-size: 2rem;
+  }
+
+  .accomplishments-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .accomplishments-section .row {
+    display: block;
+  }
+
+  .accomplishments-section .col-12 {
+    margin-bottom: 20px;
+  }
+}
+
+
+/* --- Carousel Section --- */
+.carousel {
+  height: 90vh; 
+  position: relative;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%; /* Make the image fill the entire container */
+  object-fit: cover; /* Ensures the image fills the container without distortion, cropping if needed */
+  object-position: center; /* Keeps the image centered */
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s ease;
+}
+
+.carousel-indicators button {
+  background-color: #6dadf1;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+.carousel-indicators .active {
+  background-color: #004C8C;
+}
+
+.carousel-container {
+  padding: 0;
+  margin: 0;
+}
+
+/* --- Carousel Responsiveness --- */
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+  .carousel {
+    height: 500px;  /* Adjust the carousel height for tablets */
+  }
+  
+  .carousel-control-prev, .carousel-control-next {
+    font-size: 1.5rem;  /* Slightly smaller control buttons */
+  }
+}
+
+/* Mobile (<= 767px) */
+@media (max-width: 767px) {
+  .carousel {
+    height: 300px;  /* Adjust the carousel height for mobile */
+  }
+
+  .carousel-item img {
+    object-position: center center;  /* Ensure the image stays centered */
+  }
+
+  .carousel-control-prev, .carousel-control-next {
+    font-size: 1.2rem;  /* Even smaller control buttons on mobile */
+  }
+}
+
+
+/* --- Footer --- */
+.footer {
+  background-color: #212529;
+  padding: 30px 0;
+  position: relative; /* This can stay relative to its container */
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* --- General Mobile Responsiveness --- */
+@media (max-width: 767px) {
+  /* Navbar on small screens */
+  .navbar {
+    font-size: 1.5rem; /* Smaller font size on mobile */
+    padding: 1rem 1.2rem;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.25rem; /* Adjusting brand font size */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 10px; /* Adjusting spacing for mobile */
+  }
+
+  .navbar-icons i {
+    font-size: 1.5rem; /* Smaller icons for mobile */
+  }
+
+  .hero-section img {
+    height: 70vh; /* Reduced height on mobile */
+  }
+
+  .hero-text {
+    font-size: 1.8rem; /* Smaller hero text for mobile */
+  }
+
+  .hero-button {
+    font-size: 1rem;
+    padding: 8px 16px; /* Adjusted button size */
+  }
+
+  /* Footer */
+  .footer p {
+    font-size: 0.8rem;
+  }
+}
+
+/* --- Tablet (iPad) Responsiveness --- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar {
+    font-size: 1.75rem; /* Adjusted for tablet */
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.4rem; /* Adjusting brand font size */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 15px; /* Slightly more space between items */
+  }
+
+  .navbar-icons i {
+    font-size: 1.65rem; /* Slightly smaller icons for tablet */
+  }
+
+  .hero-section img {
+    height: 75vh; /* Adjusted height for tablet */
+  }
+
+  .hero-text {
+    font-size: 2.2rem; /* Adjusted hero text size */
+  }
+
+  .hero-button {
+    font-size: 1.1rem;
+    padding: 9px 18px;
+  }
+
+  /* Footer */
+  .footer p {
+    font-size: 0.85rem;
+  }
+}
+
+/* --- Desktop (Large Screens) --- */
+@media (min-width: 1025px) {
+  /* Navbar on larger screens */
+  .navbar {
+    font-size: 2rem; /* Larger font size for desktop */
+    padding: 1rem 2rem; /* Adjust navbar padding for larger screens */
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.5rem; /* Larger brand font size */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 25px; /* More spacing between nav items */
+  }
+
+  .navbar-icons i {
+    font-size: 1.75rem; /* Regular icon size */
+  }
+
+  .hero-section img {
+    height: 80vh; /* Default hero section height for desktop */
+  }
+
+  .hero-text {
+    font-size: 2.5rem; /* Hero text size for desktop */
+  }
+
+  .hero-button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+
+  /* Footer */
+  .footer p {
+    font-size: 1rem;
+  }
+}
