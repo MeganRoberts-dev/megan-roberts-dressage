@@ -1,103 +1,40 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
-{%block content%}
+{% block content %}
       <section id="pricing" class="pricing-content section-padding">
-        <div class="container">					
+        <div class="container">
           <div class="section-title mt-5 text-center">
             <h2>The services I offer</h2>
-            <p>Please Conatct Me if you require further information.</p>
-          </div>				
-          <div class="row text-center">									
-            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;">
+            <p>Please Contact Me if you require further information.</p>
+          </div>
+
+          <div class="row text-center">
+
+            {% for service in services %}
+            <div class="col-lg-4 col-sm-6 col-xs-12">
               <div class="pricing_design">
                 <div class="single-pricing">
-                  <div class="price-head">		
-                    <h2>Penrhyd Arena Hire</h2>
-                    <h1>£10</h1>
-                    <span>1 hour</span>
+                  <div class="price-head">
+                    <h2>{{ service.name }}</h2>
+                    <h2 class="fs-1">£{{ service.price }}</h2>
+                    <span>{{ service.duration }}</span>
                   </div>
                   <div class="pricing-price">
-                    
+                    <!-- this was empty?? -->
                   </div>
-                  <a href="#" class="price_btn">Book Now</a>
+                  <a href="#" class="btn btn-lg price_btn">Book Now</a>
                 </div>
               </div>
-            </div><!--- END COL -->	
-            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
-              <div class="pricing_design">
-                <div class="single-pricing">
-                  <div class="price-head">		
-                    <h2>Lesson</h2>
-                    <h1 class="price">£30</h1>
-                    <span>45mins</span>
-                  </div>
-                  <div class="pricing-price">
-                    
-                  </div>
-                  <a href="#" class="price_btn">Book Now</a>
-                </div>
-              </div>
-            </div><!--- END COL -->	
-            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInUp;">
-              <div class="pricing_design">
-                <div class="single-pricing">
-                  <div class="price-head">		
-                    <h2>Schooling</h2>
-                    <h1 class="price">£35</h1>
-                    <span>45mins</span>
-                  </div>
-                  <div class="pricing-price">
-                    
-                  </div>
-                  <a href="#" class="price_btn">Book Now</a>
-                </div>
-              </div>
-            </div><!--- END COL -->	
-            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
-              <div class="pricing_design">
-                <div class="single-pricing">
-                  <div class="price-head">		
-                    <h2>DIY Livery</h2>
-                    <h1 class="price">£55</h1>
-                    <span>per week</span>
-                  </div>
-                  <div class="pricing-price">
-                    
-                  </div>
-                  <a href="#" class="price_btn">Book Now</a>
-                </div>
-              </div>
-            </div><!--- END COL -->	<div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
-              <div class="pricing_design">
-                <div class="single-pricing">
-                  <div class="price-head">		
-                    <h2>Full Livery</h2>
-                    <h1 class="price">£120</h1>
-                    <span>per week</span>
-                  </div>
-                  <div class="pricing-price">
-                    
-                  </div>
-                  <a href="#" class="price_btn">Book Now</a>
-                </div>
-              </div>
-            </div><!--- END COL -->	
-            <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
-              <div class="pricing_design">
-                <div class="single-pricing">
-                  <div class="price-head">		
-                    <h2>Schooling livery</h2>
-                    <h1 class="price">£225</h1>
-                    <span>per week</span>
-                  </div>
-                  <div class="pricing-price">
-                    
-                  </div>
-                  <a href="#" class="price_btn">Book Now</a>
-                </div>
-              </div>
-            </div><!--- END COL -->			  
-          </div><!--- END ROW -->
-        </div><!--- END CONTAINER -->
+            </div>
+
+            {% empty %}
+            <div class="col">
+              No Services Found
+            </div>
+
+            {% endfor %}
+
+          </div>
+        </div>
       </section>
-{%endblock%}
+{% endblock %}
