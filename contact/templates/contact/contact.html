@@ -6,28 +6,36 @@
       <h3 class="text-center mt-5">Contact me for enquiries</h3>
       <form action="{% url 'contact' %}" method ="post">
         {% csrf_token %}
-      <div class="card text-center" style="width: 25rem;">
-        <div class="card-body">
-          <h5 class="card-title">Details</h5>
-          <div class="row g-3">
-            <div class="col">
-              <input type="text" class="form-control" name="first_name" placeholder="First name" aria-label="First name">
+        <div class="card text-center" style="width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">Details</h5>
+            <div class="row g-3">
+              <!-- first name -->
+              <div class="col">
+                <input type="text" class="form-control" name="first_name" placeholder="First name" aria-label="First name">
+              </div>
+              <!-- last name -->
+              <div class="col">
+                <input type="text" class="form-control" name="last_name" placeholder="Last name" aria-label="Last name">
+              </div>
             </div>
-            <div class="col">
-              <input type="text" class="form-control" name="last_name" placeholder="Last name" aria-label="Last name">
+            <div class="row g-3">
+              <!-- email -->
+              <div class="col">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+              </div>
+            </div>
+            <div class="row g-3">
+              <!-- comments -->
+              <div class="col">
+                <label for="comments" class="form-label">Comments</label>
+                <textarea class="form-control" name="comments" id="comments" rows="3"></textarea>
             </div>
           </div>
-          <div class="col">
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-          </div>
-          <div class="col">
-            <label for="exampleFormControlTextarea1" class="form-label">Comments</label>
-            <textarea class="form-control" name="comments" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
+          <!-- submit -->
+          <button type="submit" class="btn btn-primary">Send</button>
         </div>
-        <button type="submit" class="btn btn-primary">Send</button>
-      </div>
       </form>
     </div>
   </div>
