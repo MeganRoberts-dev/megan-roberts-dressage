@@ -1,40 +1,50 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-      <section id="pricing" class="pricing-content section-padding">
-        <div class="container">
-          <div class="section-title mt-5 text-center">
+<section id="pricing" class="pricing-content section-padding">
+    <div class="container">
+        <div class="section-title mt-5 text-center">
             <h2>The services I offer</h2>
-            <p>Please Contact Me if you require further information.</p>
-          </div>
+            <p>Please <a href="{% url 'add_service' %}">Contact Me</a> if you require further information.</p>
+        </div>
 
-          <div class="row text-center">
+        <div class="row text-center">
 
             {% for service in services %}
             <div class="col-lg-4 col-sm-6 col-xs-12">
-              <div class="pricing_design">
-                <div class="single-pricing">
-                  <div class="price-head">
-                    <h2>{{ service.name }}</h2>
-                    <h2 class="fs-1">£{{ service.price }}</h2>
-                    <span>{{ service.duration }}</span>
-                  </div>
-                  <div class="pricing-price">
-                    <!-- this was empty?? -->
-                  </div>
-                  <a href="#" class="btn btn-lg price_btn">Book Now</a>
+                <div class="pricing_design">
+                    <div class="single-pricing">
+                        <div class="price-head">
+                            <h2>{{ service.name }}</h2>
+                            <h2 class="fs-1">£{{ service.price }}</h2>
+                            <span>{{ service.duration }}</span>
+                        </div>
+                        <div class="pricing-price">
+                            <!-- this was empty?? -->
+                        </div>
+                        <a href="#" class="btn btn-lg price_btn">Book Now</a>
+                        
+                        <!-- Admin Only Buttons -->
+                        {% if user.is_authenticated and user.is_superuser %}
+                        <div class="admin-buttons mt-3">
+                            <a href="{% url 'edit_service' service.id %}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{% url 'delete_service' service.id %}" method="POST" style="display: inline;">
+                              {% csrf_token %}
+                              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
-              </div>
             </div>
 
             {% empty %}
             <div class="col">
-              No Services Found
+                No Services Found
             </div>
-
             {% endfor %}
 
-          </div>
         </div>
-      </section>
+    </div>
+</section>
 {% endblock %}
