@@ -1,18 +1,33 @@
 /* General Layout for Body */
 html, body {
-  height: 100%; /* Make sure body takes up full height */
+  height: 100%;
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
+  min-height: 100vh;
+  margin-bottom: 0;
   display: flex;
-  flex-direction: column; /* Align content vertically */
-  justify-content: space-between; /* Push footer to the bottom */
+  flex-direction: column;
 }
 
-.main-content {
-  flex: 1; /* This will take all available space between navbar and footer */
+.content {
+  flex-grow: 1; /* This ensures the content area grows to take available space */
 }
+
+/* Footer styles */
+.footer {
+  background-color: #212529;
+  padding: 30px 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  position: relative;
+  margin-top: auto;  /* This ensures the footer sticks to the bottom when content is small */
+}
+
 /* --- Navbar --- */
 .navbar {
   font-size: 2rem;
@@ -144,22 +159,6 @@ span {
   background-color: #007bff;
 }
 
-/* --- Accomplishments Section --- */
-.accomplishments-section h2 {
-  font-size: 2.5rem;
-  color: #333;
-}
-
-.accomplishments-section .card {
-  border: none;
-  transition: transform 0.3s ease;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.accomplishments-section .card:hover {
-  transform: translateY(-10px);
-}
-
 /* --- Map Section --- */
 .map-container iframe {
   border-radius: 8px;
@@ -168,19 +167,37 @@ span {
 
 /* --- About Me Section --- */
 .about-me {
-  padding: 40px 0;
+  padding: 10px 0;
+}
+
+.about-me-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.card {
+  border: none;
+  margin-bottom: 2px; 
+}
+
+.card-img-left {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  padding-top: 40px;
 }
 
 .about-me .card {
   border: none;
-  padding-top: 60px; 
+  margin-top: 10px; 
 }
 
 .about-me h1 {
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+  font-weight: 350;
   color: #333;
-  padding-top: 60px; 
+  margin-top: 80px; 
 }
 
 .about-me .lead {
@@ -190,13 +207,13 @@ span {
 
 /* --- Accomplishments Section --- */
 .accomplishments-section {
-  padding: 40px 0;
+  margin-top: 30px; 
 }
 
 .accomplishments-section h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: #333;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .accomplishments-section .card {
@@ -207,7 +224,7 @@ span {
 
 .accomplishments-section .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 15px rgba(7, 140, 167, 0.2);
 }
 
 .accomplishments-section .card .fs-1 {
@@ -226,54 +243,6 @@ span {
   line-height: 1.5;
 }
 
-/* --- Card Image --- */
-.card-img-left {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-/* --- Responsive Styles --- */
-
-/* Tablet (768px - 991px) */
-@media (max-width: 991px) {
-  .accomplishments-section .card {
-    padding: 15px;
-  }
-
-  .accomplishments-section .card .fs-1 {
-    font-size: 2.5rem;
-  }
-
-  .accomplishments-section h2 {
-    font-size: 2rem;
-  }
-}
-
-/* Mobile (<= 767px) */
-@media (max-width: 767px) {
-  .accomplishments-section .card {
-    padding: 15px;
-  }
-
-  .accomplishments-section .card .fs-1 {
-    font-size: 2rem;
-  }
-
-  .accomplishments-section h2 {
-    font-size: 1.8rem;
-  }
-
-  .accomplishments-section .row {
-    display: block;
-  }
-
-  .accomplishments-section .col-12 {
-    margin-bottom: 20px;
-  }
-}
-
-
 /* --- Carousel Section --- */
 .carousel {
   height: 90vh; 
@@ -286,10 +255,11 @@ span {
 
 .carousel-item img {
   width: 100%;
-  height: 100%; /* Make the image fill the entire container */
-  object-fit: cover; /* Ensures the image fills the container without distortion, cropping if needed */
-  object-position: center; /* Keeps the image centered */
+  height: 100%; 
+  object-fit: cover; 
+  object-position: center; 
 }
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: rgba(0, 0, 0, 0.5);
@@ -335,113 +305,105 @@ span {
   padding: 0;
   margin: 0;
 }
+/* Contact Section */
 
-/* --- Carousel Responsiveness --- */
+.bg-blue text{
+  background-color:#6dadf1;
+}
+.contact-section {
+  padding: 30px 0;
+  margin-top: 30px; /* Adjusted top margin for spacing */
+  background-color: #f9f9f9;
+}
+
+.contact-section h2 {
+  font-size: 2rem; /* Medium font size for header */
+  color: #333;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 30px; /* 30px top margin as requested */
+  margin-bottom: 20px; /* Adjusted spacing below header */
+}
+
+.contact-card {
+  background-color: #6dadf1; /* Blue background */
+  padding: 20px;
+  color: white;
+  text-align: center;
+  margin: 30px auto; /* Centering the card and spacing below header */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px; /* Set a max width to avoid stretching too wide */
+}
+
+.contact-form-card {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 30px; /* Spacing between contact card and form */
+  border-radius: 8px;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #6dadf1; /* Blue button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #004C8C; /* Darker blue on hover */
+}
+
+/* --- Responsive Styles --- */
 
 /* Tablet (768px - 991px) */
 @media (max-width: 991px) {
-  .carousel {
-    height: 500px;  /* Adjust the carousel height for tablets */
+  /* Accomplishments Section */
+  .accomplishments-section h2 {
+    font-size: 2rem;
   }
-  
-  .carousel-control-prev, .carousel-control-next {
-    font-size: 1.5rem;  /* Slightly smaller control buttons */
-  }
-}
 
-/* Mobile (<= 767px) */
-@media (max-width: 767px) {
+  .accomplishments-section .card {
+    padding: 15px;
+  }
+
+  .accomplishments-section .card .fs-1 {
+    font-size: 2.5rem;
+  }
+
+  /* Carousel */
   .carousel {
-    height: 300px;  /* Adjust the carousel height for mobile */
+    height: 60vh; /* Adjust carousel height for tablet */
   }
 
   .carousel-item img {
-    object-position: center center;  /* Ensure the image stays centered */
+    object-position: center; /* Center images */
   }
 
-  .carousel-control-prev, .carousel-control-next {
-    font-size: 1.2rem;  /* Even smaller control buttons on mobile */
-  }
-}
-
-
-/* --- Footer --- */
-.footer {
-  background-color: #212529;
-  padding: 30px 0;
-  position: relative; /* This can stay relative to its container */
-  bottom: 0;
-  width: 100%;
-}
-
-.footer p {
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-/* --- General Mobile Responsiveness --- */
-@media (max-width: 767px) {
-  /* Navbar on small screens */
-  .navbar {
-    font-size: 1.5rem; /* Smaller font size on mobile */
-    padding: 1rem 1.2rem;
+  .carousel-control-prev,
+  .carousel-control-next {
+    font-size: 1.5rem; /* Slightly smaller controls */
   }
 
-  .navbar .navbar-brand {
-    font-size: 1.25rem; /* Adjusting brand font size */
-  }
-
-  .navbar-nav .nav-item {
-    margin: 0 10px; /* Adjusting spacing for mobile */
-  }
-
-  .navbar-icons i {
-    font-size: 1.5rem; /* Smaller icons for mobile */
-  }
-
+  /* Hero Section */
   .hero-section img {
-    height: 70vh; /* Reduced height on mobile */
+    height: 75vh; /* Adjust height for tablet */
   }
 
   .hero-text {
-    font-size: 1.8rem; /* Smaller hero text for mobile */
-  }
-
-  .hero-button {
-    font-size: 1rem;
-    padding: 8px 16px; /* Adjusted button size */
-  }
-
-  /* Footer */
-  .footer p {
-    font-size: 0.8rem;
-  }
-}
-
-/* --- Tablet (iPad) Responsiveness --- */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .navbar {
-    font-size: 1.75rem; /* Adjusted for tablet */
-  }
-
-  .navbar .navbar-brand {
-    font-size: 1.4rem; /* Adjusting brand font size */
-  }
-
-  .navbar-nav .nav-item {
-    margin: 0 15px; /* Slightly more space between items */
-  }
-
-  .navbar-icons i {
-    font-size: 1.65rem; /* Slightly smaller icons for tablet */
-  }
-
-  .hero-section img {
-    height: 75vh; /* Adjusted height for tablet */
-  }
-
-  .hero-text {
-    font-size: 2.2rem; /* Adjusted hero text size */
+    font-size: 2.2rem; /* Adjust hero text size */
   }
 
   .hero-button {
@@ -449,38 +411,132 @@ span {
     padding: 9px 18px;
   }
 
-  /* Footer */
-  .footer p {
-    font-size: 0.85rem;
-  }
-}
-
-/* --- Desktop (Large Screens) --- */
-@media (min-width: 1025px) {
-  /* Navbar on larger screens */
+  /* Navbar */
   .navbar {
-    font-size: 2rem; /* Larger font size for desktop */
-    padding: 1rem 2rem; /* Adjust navbar padding for larger screens */
+    font-size: 1.75rem; /* Adjust navbar font size */
+    padding: 1rem 1.5rem; /* Adjust padding */
   }
 
   .navbar .navbar-brand {
-    font-size: 1.5rem; /* Larger brand font size */
+    font-size: 1.4rem; /* Adjust brand size */
   }
 
   .navbar-nav .nav-item {
-    margin: 0 25px; /* More spacing between nav items */
+    margin: 0 15px; /* Adjust spacing */
   }
 
   .navbar-icons i {
-    font-size: 1.75rem; /* Regular icon size */
+    font-size: 1.65rem; /* Adjust icon size */
   }
 
+  /* Footer */
+  .footer p {
+    font-size: 0.85rem; /* Smaller footer text */
+  }
+}
+
+/* Mobile (<= 767px) */
+@media (max-width: 767px) {
+  /* Accomplishments Section */
+  .accomplishments-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .accomplishments-section .card {
+    padding: 15px;
+  }
+
+  .accomplishments-section .card .fs-1 {
+    font-size: 2rem;
+  }
+
+  .accomplishments-section .row {
+    display: block; /* Stack cards vertically */
+  }
+
+  .accomplishments-section .col-12 {
+    margin-bottom: 20px;
+  }
+
+  /* Carousel */
+  .carousel {
+    height: 50vh; /* Adjust carousel height for mobile */
+  }
+
+  .carousel-item img {
+    object-position: center; /* Center images */
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    font-size: 1.2rem; /* Smaller controls */
+  }
+
+  /* Hero Section */
   .hero-section img {
-    height: 80vh; /* Default hero section height for desktop */
+    height: 70vh; /* Reduced height for mobile */
   }
 
   .hero-text {
-    font-size: 2.5rem; /* Hero text size for desktop */
+    font-size: 1.8rem; /* Smaller hero text */
+  }
+
+  .hero-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  /* Navbar */
+  .navbar {
+    font-size: 1.5rem; /* Smaller navbar text */
+    padding: 1rem 1.2rem;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.25rem; /* Adjust brand size */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 10px; /* Adjust spacing */
+  }
+
+  .navbar-icons i {
+    font-size: 1.5rem; /* Adjust icon size */
+  }
+
+  /* Footer */
+  .footer p {
+    font-size: 0.8rem; /* Smaller footer text */
+  }
+}
+
+/* Desktop (Large Screens, 1025px and above) */
+@media (min-width: 1025px) {
+  /* Navbar */
+  .navbar {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 25px;
+  }
+
+  .navbar-icons i {
+    font-size: 1.75rem;
+  }
+
+  /* Hero Section */
+  .hero-section img {
+    height: 80vh; /* Larger height for hero section on large screens */
+  }
+
+  .hero-text {
+    font-size: 2.5rem; /* Larger text for hero section */
   }
 
   .hero-button {
