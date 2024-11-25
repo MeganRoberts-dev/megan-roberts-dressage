@@ -1,6 +1,12 @@
-# In services/views.py
 from django.shortcuts import render
+from .models import Service
+
 
 def services(request):
-    return render(request, 'services/services.html')  # Correct path
+    services = Services.objects.all().order_by('price')
+    template = 'services/services.html'
+    context = {
+        'services': services,
+    }
+    return render(request, template, context)
 
