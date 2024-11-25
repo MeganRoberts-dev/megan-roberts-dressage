@@ -37,7 +37,7 @@ def contact(request):
             )
 
             # Show success message
-            messages.success(
+            messages.info(
                 request,
                 "Thank you! Your email was successful. "
                 "You will receive a confirmation email soon. Meg x"

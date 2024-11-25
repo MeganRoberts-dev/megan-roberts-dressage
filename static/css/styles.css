@@ -1,17 +1,26 @@
 /* General Layout for Body */
-html, body {
-  height: 100%;
+* {
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-  min-height: 100vh;
-  margin-bottom: 0;
-  display: flex;
-  flex-direction: column;
+html, body {
+  height: 100%;
 }
+
+#alerts {
+ margin-top:100px;
+}
+
+body > footer {
+  position: sticky;
+  top: 100vh;
+}
+
+/* main {
+  margin-top: 100px;
+} */
 
 .content {
   flex-grow: 1; /* This ensures the content area grows to take available space */
@@ -24,7 +33,6 @@ body {
   width: 100%;
   color: white;
   text-align: center;
-  position: relative;
   margin-top: auto;  /* This ensures the footer sticks to the bottom when content is small */
 }
 
@@ -99,11 +107,6 @@ nav.navbar {
 }
 
 /* --- Hero Section --- */
-body {
-  margin: 0;
-  padding: 0;
-}
-
 span {
   color: #6dadf1 !important;
 }

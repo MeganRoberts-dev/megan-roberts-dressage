@@ -28,45 +28,59 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}" href="{% url 'services' %}">Services</a>
                     </li>
+                    {% if request.user.is_superuser %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'add_service' %}">Add Service</a>
+                        </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
                     </li>
                 </ul>
             </div>
             <div class="navbar-icons">
-            <div class="d-flex align-items-center">
-                <a href="https://facebook.com" class="text-dark me-3" target="_blank">
-                    <i class="bi bi-facebook"></i>
-                </a>
-                <a href="https://instagram.com" class="text-dark me-3" target="_blank">
-                    <i class="bi bi-instagram"></i>
-                </a>
-                <a href="https://tiktok.com" class="text-dark" target="_blank">
-                    <i class="bi bi-tiktok"></i>
-                </a>
-            </div>
+                <div class="d-flex align-items-center">
+                    <a href="https://facebook.com" class="text-dark me-3" target="_blank">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com" class="text-dark me-3" target="_blank">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com" class="text-dark" target="_blank">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                </div>
             </div>
         </div>
-      </nav>
-      {% if messages %}
-    <section id="alerts">
-        {% for msg in messages %}
-            <aside class="alert {% if msg.tags == 'error' %}alert-danger{% else %}alert-{{ msg.tags }}{% endif %} rounded-0 text-center" role="alert">
-                <h3>{{ msg }}</h3>
-            </aside>
-        {% endfor %}
-    </section>
-{% endif %}
-<main>
-   {%block content%}
-   {%endblock%}
-   <footer class="footer bg-dark text-white py-3 mt-5">
-    <div class="container text-center">
-        <p>Email: Megan.29@icloud.com <span>|</span> Phone: 07807053246  </p>
-        <p class="mb-0">© 2024 Megan Roberts <span>|</span> All Rights Reserved</p>
-    </div>
-</footer>
-</main>
+    </nav>
+
+    <!-- django messages -->
+    {% if messages %}
+        <section id="alerts">
+            {% for msg in messages %}
+                <aside class="alert {% if msg.tags == 'error' %}alert-danger{% else %}alert-{{ msg.tags }}{% endif %} rounded-0 text-center" role="alert">
+                    <h3>{{ msg }}</h3>
+                </aside>
+            {% endfor %}
+        </section>
+    {% endif %}
+
+    <!-- main -->
+    <main>
+        {%block content%}
+        {%endblock%}
+    </main>
+
+    <!-- footer -->
+   <footer class="footer bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>Email: Megan.29@icloud.com <span>|</span> Phone: 07807053246  </p>
+            <p class="mb-0">© 2024 Megan Roberts <span>|</span> All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
   </body>
 </html>
