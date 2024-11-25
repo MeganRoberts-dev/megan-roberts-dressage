@@ -23,7 +23,7 @@ def contact(request):
             to_email = [request.POST.get('email'), ]
 
             # Prepare the HTML content for the email
-            html_content = render_to_string('contact/email_confirmation.html', {
+            html_content = render_to_string('contact/email_confirm.html', {
                 'user_name': request.POST.get('first_name'),
             })
 
@@ -39,11 +39,14 @@ def contact(request):
             # Show success message
             messages.success(
                 request,
-                "Thank you! Your email was successful. You will receive a confirmation email soon. Meg x"
+                "Thank you! Your email was successful. "
+                "You will receive a confirmation email soon. Meg x"
             )
             
             # Redirect to the confirmation page
             return redirect(reverse('email-confirm'))  # Redirect to 'email-confirm' URL
+
+        messages.error(request, "Error, please try again.")
 
     template = "contact/contact.html"
     context = {
