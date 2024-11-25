@@ -23,7 +23,7 @@ def contact(request):
             to_email = [request.POST.get('email'), ]
 
             # Prepare the HTML content for the email
-            html_content = render_to_string('contact/email_confirm.html', {
+            html_content = render_to_string('contact/email-confirm.html', {
                 'user_name': request.POST.get('first_name'),
             })
 
