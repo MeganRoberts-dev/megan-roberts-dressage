@@ -5,6 +5,9 @@ from django.core.mail import send_mail
 from .models import Contact
 from .forms import ContactForm
 
+def email_confirm(request):
+    """ A view to display the email confirmation page """
+    return render(request, 'contact/email-confirm.html')
 
 def contact(request):
     """ A view to return the contact page """
@@ -13,26 +16,37 @@ def contact(request):
         if contact_form.is_valid():
             contact_form.save()
 
-            # send email 
+            # Send confirmation email
             subject = "Thank you for contacting Megan Roberts Dressage."
             from_email = settings.DEFAULT_FROM_EMAIL
             to_email = [request.POST.get('email'), ]
-            body = 'thanks' 
 
+            # Prepare the HTML content for the email
+            html_content = render_to_string('contact/email_confirmation.html', {
+                'user_name': request.POST.get('first_name'),
+            })
+
+            # Send email
             send_mail(
                 subject,
-                body,
+                '',
                 from_email,
-                to_email
+                to_email,
+                html_message=html_content  # Include the HTML content here
             )
+
+            # Show success message
             messages.success(
                 request,
-                "Thank You! We'll be in touch with you soon!"
+                "Thank you! Your email was successful. You will receive a confirmation email soon. Meg x"
             )
-            return redirect(reverse("home"))
+            
+            # Redirect to the confirmation page
+            return redirect(reverse('email-confirm'))  # Redirect to 'email-confirm' URL
 
     template = "contact/contact.html"
     context = {
         "contact_form": contact_form,
     }
     return render(request, template, context)
+
