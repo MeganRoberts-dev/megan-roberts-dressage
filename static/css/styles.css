@@ -309,7 +309,6 @@ span {
   margin: 0;
 }
 /* Contact Section */
-
 .bg-blue text{
   background-color:#6dadf1;
 }
@@ -367,6 +366,39 @@ span {
 
 .contact-form button:hover {
   background-color: #004C8C; /* Darker blue on hover */
+}
+
+/* Services */ 
+
+/* Add services */
+/* Smaller Form Styling */
+.small-dark-form-container {
+  margin-top: 20vh;
+  color: black;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.dark-form-card {
+  background-color: #1e1e1e;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+}
+
+.dark-form-card h2 {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
 }
 
 /* --- Responsive Styles --- */
