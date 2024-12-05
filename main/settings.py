@@ -47,6 +47,11 @@ INSTALLED_APPS = [
     'home',
     'services',
     'contact',
+    'checkout',
+    'bag',
+    'users',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -89,9 +94,10 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required for allauth 
+                'django.template.context_processors.request', 
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bag.contexts.bag_contents',
             ],
         },
     },
@@ -101,6 +107,17 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend', 
     'allauth.account.auth_backends.AuthenticationBackend', 
 )
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+LOGIN_REDIRECT_URL = 'profile'
+LOGOUT_REDIRECT_URL = 'login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 SITE_ID = 1
 
 WSGI_APPLICATION = 'main.wsgi.application'
