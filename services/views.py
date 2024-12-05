@@ -13,6 +13,9 @@ def services(request):
     }
     return render(request, template, context)
 
+def service_list(request):
+    services = Service.objects.all()
+    return render(request, 'services/service-list.html', {'services': services}),
 
 @login_required
 def add_service(request):
