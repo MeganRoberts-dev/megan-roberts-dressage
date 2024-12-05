@@ -18,12 +18,8 @@ body > footer {
   top: 100vh;
 }
 
-/* main {
-  margin-top: 100px;
-} */
-
 .content {
-  flex-grow: 1; /* This ensures the content area grows to take available space */
+  flex-grow: 1;
 }
 
 /* Footer styles */
@@ -31,15 +27,15 @@ body > footer {
   background-color: #212529;
   padding: 30px 0;
   width: 100%;
-  color: white;
+  color: #ffffff;
   text-align: center;
-  margin-top: auto;  /* This ensures the footer sticks to the bottom when content is small */
+  margin-top: auto;
 }
 
 /* --- Navbar --- */
 .navbar {
   font-size: 2rem;
-  color: #f9f9f9;
+  color: #ffffff;;
   margin-top: 20px;
   position: relative;
   padding: 1rem 1.5rem;
@@ -130,7 +126,7 @@ span {
   width: 100%; 
   height: 100%; 
   background-color: rgba(0, 0, 0, 0.5); 
-  color: white;
+  color:#ffffff;;
   display: flex;
   flex-direction: column;
   justify-content: center; 
@@ -162,7 +158,7 @@ span {
   background-color: #007bff;
 }
 
-/* --- Map Section --- */
+/* --- Map --- */
 .map-container iframe {
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -330,7 +326,7 @@ span {
 .contact-card {
   background-color: #6dadf1; /* Blue background */
   padding: 20px;
-  color: white;
+  color:#ffffff;
   text-align: center;
   margin: 30px auto; /* Centering the card and spacing below header */
   border-radius: 8px;
@@ -339,10 +335,10 @@ span {
 }
 
 .contact-form-card {
-  background-color: white;
+  background-color:#ffffff;;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 30px; /* Spacing between contact card and form */
+  margin-top: 30px; 
   border-radius: 8px;
 }
 
@@ -356,8 +352,8 @@ span {
 
 .contact-form button {
   padding: 10px 20px;
-  background-color: #6dadf1; /* Blue button */
-  color: white;
+  background-color: #6dadf1; 
+  color:#ffffff;;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
@@ -365,13 +361,11 @@ span {
 }
 
 .contact-form button:hover {
-  background-color: #004C8C; /* Darker blue on hover */
+  background-color: #004C8C; 
 }
 
 /* Services */ 
-
 /* Add services */
-/* Smaller Form Styling */
 .small-dark-form-container {
   margin-top: 20vh;
   color: black;
