@@ -1,18 +1,40 @@
-# [megan-roberts-dressage](https://megan-roberts-dressage-48ee9d19dcc1.herokuapp.com)
+# [Megan Roberts Dressage](https://megan-roberts-dressage-48ee9d19dcc1.herokuapp.com)
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/MeganRoberts-dev/megan-roberts-dressage)](https://github.com/MeganRoberts-dev/megan-roberts-dressage/commits/main)
 [![GitHub last commit](https://img.shields.io/github/last-commit/MeganRoberts-dev/megan-roberts-dressage)](https://github.com/MeganRoberts-dev/megan-roberts-dressage/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/MeganRoberts-dev/megan-roberts-dressage)](https://github.com/MeganRoberts-dev/megan-roberts-dressage)
 
-⚠️ INSTRUCTIONS ⚠️
+### Welcome to the World of Dressage**  
 
-In this section, include a few paragraphs providing an overview of your project. Essentially, this part is your "sales pitch". Describe what the project hopes to accomplish, who it is intended to target, and how it will be useful to the target audience.
+Step into the elegant, disciplined world of dressage with the **Megan Roberts Dressage** platform—a sleek, professional website designed to captivate, engage, and inspire! This isn't just a website; it’s a gateway to experiencing world-class dressage services, learning more about Megan’s expertise, and booking sessions with ease. Whether you're a seasoned equestrian or a passionate newcomer, this platform is tailored to meet your needs and exceed expectations.  
 
-⚠️ --- END --- ⚠️
+### What Sets This Platform Apart?  
 
-🛑 NOTES 🛑
+**A Seamless Booking Experience with Secure Payments:**  
+Gone are the days of complicated bookings! Users can effortlessly book Megan’s services directly through the site with a smooth and secure checkout powered by **Stripe**. Every transaction is handled with the utmost security, ensuring peace of mind for every client.  
 
-Do not add a **Table of Contents** to your Markdown files. GitHub has these built-in automatically using the headers/hashtags.
+**Immersive About Section with Stunning Visuals:**  
+Curious about Megan’s journey in the world of dressage? Dive into an **immersive “About” section** that beautifully showcases her story, achievements, and passion for dressage. Accompanied by stunning visuals, this section offers a glimpse into Megan’s world, bringing her expertise to life.  
+
+**Effortless Communication & Automatic Email Responses:**  
+Need to reach out? The platform features a **smart contact system** where users can send inquiries, and they’ll immediately receive a polite, automated response email—letting them know their message has been received and is being handled. This ensures prompt communication and a professional touch, every time.  
+
+**Location Details Made Easy:**  
+Finding Megan’s training facilities is a breeze with an integrated location section, ensuring users have all the details they need to plan their visit or session.  
+
+**Efficient Admin & Data Management:**  
+Behind the scenes, the site empowers Megan with full control. From managing bookings to responding to inquiries, everything is streamlined through a powerful admin dashboard, making business management both simple and effective.  
+
+### Who’s It For?  
+
+Whether you're a **dressage enthusiast**, a **horse owner**, or someone looking to experience the artistry of dressage, this site is for you! Megan Roberts Dressage isn’t just about showcasing services; it’s about connecting with people who share a passion for this beautiful sport.  
+
+### Why It’s Exciting  
+
+This platform is more than just a business page—it’s a **digital experience** that blends functionality with elegance. It puts clients at the center of the action, making it easy to book sessions, explore services, and stay connected. By bringing together the best of design and technology, the site ensures that every interaction feels personal, seamless, and inspiring.  
+
+Your journey with Megan Roberts Dressage starts here! 
+
 
 Don't add screenshots for the README/TESTING into your `assets` or `static` folders. Create a new folder at the root-level called `documentation`. Consider creating sub-directories within `documentation` to handle things like `wireframes`, `features`, `validation`, `responsiveness`, etc.
 
@@ -35,20 +57,12 @@ source: [megan-roberts-dressage amiresponsive](https://ui.dev/amiresponsive?url=
 
 ### Colour Scheme
 
-⚠️INSTRUCTIONS ⚠️
-
-Explain your colors and color scheme. Consider adding a link and screenshot for your color scheme using [coolors](https://coolors.co/generate).
-
-When you add a color to the palette, the URL is dynamically updated, making it easier for you to return back to your color palette later if needed. See example below:
-
-⚠️ --- END --- ⚠️
-
 I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to generate my color palette.
 
-- `#000000` primary text.
-- `#3772FF` primary highlights.
-- `#DF2935` secondary text.
-- `#FDCA40` secondary highlights.
+- `#333` primary text.
+- `#6dadf1` primary highlights.
+- `#ffffff` secondary text.
+- `#007bff` secondary highlights.
 
 ![screenshot](documentation/coolors.png)
 
@@ -74,29 +88,25 @@ In this section, list all of your possible user stories for the project. Samples
 
 | Target | Expectation | Outcome |
 | --- | --- | --- |
-| As a guest user | I would like to browse products without needing to register | so that I can shop freely before deciding to create an account. |
-| As a guest user | I would like to be prompted to create an account or log in at checkout | so that I can complete my purchase and track my order history. |
-| As a user | I would like to sign up to the site's newsletter | so that I can stay up to date with any upcoming sales or promotions. |
-| As a customer | I would like to browse various product categories (clothing, toys, jewellery, kitchen gadgets, etc.) | so that I can easily find what I'm looking for. |
-| As a customer | I would like to sort products by price (low-to-high/high-to-low) and name (alphabetical) | so that I can quickly organize items in a way that suits my shopping style. |
-| As a customer | I would like to filter products by category | so that I can narrow down the products to the types I am most interested in. |
-| As a customer | I would like to click on individual products to view more details (description, price, image, etc.) | so that I can make an informed decision about my purchase. |
-| As a customer | I would like to add items to my shopping cart using quantity increment/decrement buttons | so that I can adjust how many units of a product I want before checkout. |
-| As a customer | I would like to view and manage my shopping cart | so that I can review, add, or remove items before proceeding to checkout. |
-| As a customer | I would like to adjust the quantity of items in my cart | so that I can modify my purchase preferences without leaving the cart. |
-| As a customer | I would like to remove items from my cart | so that I can remove products I no longer wish to buy. |
-| As a customer | I would like to proceed to checkout where I see my cart items, grand total, and input my name, email, shipping address, and card details | so that I can complete my purchase. |
-| As a customer | I would like to receive a confirmation email after my purchase | so that I can have a record of my transaction and order details. |
-| As a customer | I would like to see an order confirmation page with a checkout order number after completing my purchase | so that I know my order has been successfully placed. |
-| As a customer | I would like to securely enter my card details using Stripe at checkout | so that I can feel confident my payment information is protected. |
-| As a returning customer | I would like to be able to log in and view my past orders | so that I can track my previous purchases and order history. |
-| As a returning customer | I would like the checkout process to remember my shipping address | so that future purchases are quicker and easier. |
-| As a site owner | I would like to create new products with a name, description, price, images, and category | so that I can add additional items to the store inventory. |
-| As a site owner | I would like to update product details (name, price, description, image, category) at any time | so that I can keep my product listings accurate and up to date. |
-| As a site owner | I would like to delete products that are no longer available or relevant | so that I can maintain a clean and accurate inventory. |
-| As a site owner | I would like to view all orders placed on the website | so that I can track and manage customer purchases. |
-| As a site owner | I would like to manage product categories | so that I can ensure items are correctly organized and easy for customers to find. |
-| As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. |
+| As a guest user | I would like to learn more about Megan Roberts and her expertise | so that I can feel confident in booking services. |
+| As a guest user | I would like to view high-quality images and videos | so that I can experience the atmosphere of the services offered. |
+| As a guest user | I would like to find the location of Megan’s training facility | so that I can plan a visit or lesson. |
+| As a guest user | I would like to contact Megan through a form | so that I can ask questions or request additional information. |
+| As a guest user | I would like to receive a confirmation email after submitting a contact form | so that I know my inquiry was successfully sent. |
+| As a guest user | I would like to see clear pricing for each service | so that I can make an informed decision before booking. |
+| As a guest user | I would like to review the terms and conditions before booking | so that I understand the policies and expectations. |
+| As a guest user | I would like to securely pay for my booking through Stripe | so that I feel confident in the safety of my transaction. |
+| As a guest user | I would like to receive a confirmation email after booking a service | so that I can verify my appointment details. |
+| As a returning client | I would like to quickly book additional services | so that I can easily schedule future lessons. |
+| As a returning client | I would like to recommend the website to friends | so that they can also book services with ease. |
+| As an admin user | I would like to manage service bookings | so that I can keep track of appointments and clients. |
+| As an admin user | I would like to view and respond to customer inquiries | so that I can provide excellent customer service. |
+| As an admin user | I would like to update service details and pricing | so that clients always have accurate information. |
+| As an admin user | I would like to track payments and bookings | so that I can ensure all transactions are accounted for. |
+| As an admin user | I would like to send follow-up emails to clients | so that I can maintain good communication and gather feedback. |
+| As a general user | I would like to navigate the website easily on any device | so that I can access services on both desktop and mobile. |
+| As a general user | I would like the website to be visually appealing and professional | so that it reflects the quality of the services offered. |
+| As a general user | I would like to find helpful FAQs or information about dressage | so that I can better understand the services before booking. |
 
 ## Wireframes
 
@@ -140,25 +150,20 @@ In this section, you should go over the different parts of your project, and des
 
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
-| Register | Authentication is handled by allauth, allowing users to register accounts. | ![screenshot](documentation/features/register.png) |
-| Login | Authentication is handled by allauth, allowing users to log in to their existing accounts. | ![screenshot](documentation/features/login.png) |
-| Logout | Authentication is handled by allauth, allowing users to log out of their accounts. | ![screenshot](documentation/features/logout.png) |
-| Product List | Users can browse all available products with sorting, filtering by categories, and search functionality. | ![screenshot](documentation/features/product-list.png) |
-| Product Details | Displays detailed information about a selected product, including its name, description, price, an image, and available sizes. | ![screenshot](documentation/features/product-details.png) |
+| Service List | Users can browse all available products with sorting, filtering by categories, and search functionality. | ![screenshot](documentation/features/product-list.png) |
+| Service Details | Displays detailed information about a selected product, including its name, description, price, an image, and available sizes. | ![screenshot](documentation/features/product-details.png) |
 | Add to Bag | Users can add items to their shopping bag, with support for selecting different sizes if applicable. | ![screenshot](documentation/features/add-to-bag.png) |
 | View Bag | Users can view the contents of their shopping bag, adjust quantities, or remove items. | ![screenshot](documentation/features/view-bag.png) |
 | Checkout | Users can proceed to checkout, where they provide their delivery details and payment information using Stripe integration. | ![screenshot](documentation/features/checkout.png) |
 | Order Confirmation | Users receive an on-screen and email confirmation with details of their purchase. | ![screenshot](documentation/features/order-confirmation.png) |
-| Profile Management | Users can manage their profile information, including their default delivery address and order history. | ![screenshot](documentation/features/profile-management.png) |
 | Order History | Users can view their past orders and access details of each order, including products purchased and the delivery status. | ![screenshot](documentation/features/order-history.png) |
 | Product Management | Superusers can add, edit, and delete products from the site via a CRUD interface. | ![screenshot](documentation/features/product-management.png) |
-| Newsletter | Users can register their email address to receive newsletters from the site. Currently, this only stores the email in the database. | ![screenshot](documentation/features/newsletter.png) |
 | Contact | Users can submit a message via the contact form, which stores their name, email, and message in the database. | ![screenshot](documentation/features/contact.png) |
 | FAQs | Admins can manage frequently asked questions, which are displayed on the site for users. | ![screenshot](documentation/features/faqs.png) |
 | User Feedback | Clear and concise Django messages are used to provide feedback to users when interacting with various features (e.g., adding products to the bag, checking out, etc.). | ![screenshot](documentation/features/user-feedback.png) |
 | Heroku Deployment | The site is deployed to Heroku, making it accessible online for users. | ![screenshot](documentation/features/heroku.png) |
 | SEO | SEO optimization with a sitemap.xml, robots.txt, and appropriate meta tags to improve search engine visibility. | ![screenshot](documentation/features/seo.png) |
-| Marketing | Social media presence is available in the footer using external links, as well as a Facebook Marketplace wireframe in the README for future integrations. | ![screenshot](documentation/features/marketing.png) |
+| Marketing | Social media presence is available in the footer using external links. | ![screenshot](documentation/features/marketing.png) |
 | 404 | The 404 error page will indicate when a user has navigated to a page that doesn't exist, replacing the default Heroku 404 page with one that ties into the site's look and feel. | ![screenshot](documentation/features/404.png) |
 
 ### Future Features
@@ -171,21 +176,14 @@ A few examples are listed below to align with possible ways to improve on the sa
 
 ⚠️ --- END ---⚠️
 
-- **Product Reviews & Ratings**: Allow customers to leave reviews and rate products, with admin moderation. Display average ratings and review counts on product pages.
-- **Wishlist Functionality**: Enable users to save products to a personal wishlist for future purchases. Notify users if wishlist items go on sale or are back in stock.
-- **Product Recommendations**: Implement a "Customers who bought this also bought" or "You might also like" feature to suggest related products.
 - **Live Chat Support**: Provide real-time customer support through an integrated live chat or chatbot.
 - **Abandoned Cart Recovery**: Automatically send emails to users who add items to their cart but don't complete the purchase, offering discounts or reminders.
 - **Discount Codes and Vouchers**: Allow the admin to create discount codes or vouchers for promotions and marketing campaigns.
 - **Loyalty Program**: Introduce a points-based loyalty system where customers earn points for purchases, which can be redeemed for discounts.
-- **Product Inventory Alerts**: Notify customers when out-of-stock items are back in stock, or when low inventory is approaching.
 - **Multi-Currency and Multi-Language Support**: Expand the application to support multiple currencies and languages to reach a global audience.
 - **Product Bundles**: Offer discounted product bundles (e.g., buy 3 for the price of 2) or custom product kits.
 - **Social Media Integration**: Enable users to share products directly to social media platforms or implement a social login for quick account creation.
-- **Shipping Tracking Integration**: Provide real-time shipping updates and tracking information directly within the user’s order history.
 - **Advanced Analytics Dashboard for Admin**: Offer an in-depth dashboard that displays sales trends, popular products, customer behavior, and more.
-- **Subscription-Based Products**: Allow users to subscribe to certain products (e.g., monthly deliveries of consumables like coffee or skincare products).
-- **Product Video Demos**: Support product videos to better showcase features, especially for high-tech or complex items.
 - **Mobile App**: Develop a mobile app for iOS and Android, providing users with a more optimized shopping experience on mobile devices.
 
 ## Tools & Technologies
@@ -257,7 +255,7 @@ erDiagram
         varchar default_street_address1
         varchar default_street_address2
         varchar default_town_or_city
-        varchar default_county
+        varchar default_ 
         varchar default_postcode
         varchar default_country
     }
@@ -295,7 +293,7 @@ erDiagram
         varchar town_or_city
         varchar street_address1
         varchar street_address2
-        varchar county
+        varchar  
         datetime date
         decimal delivery_cost
         decimal order_total
