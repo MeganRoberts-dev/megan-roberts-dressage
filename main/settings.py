@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'services',
     'contact',
     'checkout',
-    'bag',
     'users',
     'crispy_forms',
     'crispy_bootstrap5',
@@ -97,7 +96,7 @@ TEMPLATES = [
                 'django.template.context_processors.request', 
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'bag.contexts.bag_contents',
+                
             ],
         },
     },
@@ -113,8 +112,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
-LOGIN_REDIRECT_URL = 'profile'
-LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = '/login/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -182,6 +180,11 @@ STATICFILES_DIRS = (
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# Stripe
+STRIPE_CURRENCY = 'gdp'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
