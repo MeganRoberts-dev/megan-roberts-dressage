@@ -1,6 +1,11 @@
 {%extends 'base.html'%}
 {% load static %}
 {%block content%}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 <div class="home-container">
   <section class="hero-section position-relative">
     <img src="{% static 'img/hero-img.jpeg' %}" alt="Hero Image">
