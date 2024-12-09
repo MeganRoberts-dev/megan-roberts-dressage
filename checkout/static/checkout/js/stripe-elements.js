@@ -1,21 +1,30 @@
+var stripe = Stripe('{{ stripe_public_key }}');
+var elements = stripe.elements();
+var card = elements.create('card');
+card.mount('#card-element');
 
-    const stripe = Stripe('{{ stripe_public_key }}');
-    const elements = stripe.elements();
-    const card = elements.create('card');
-    card.mount('#card-element');
+// Handle form submission
+var form = document.querySelector('form');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
 
-    const form = document.getElementById('payment-form');
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
-            type: 'card',
-            card: card,
-        });
+  stripe.confirmCardPayment('{{ client_secret }}', {
+    payment_method: {
+      card: card,
+      billing_details: {
+        name: '{{ order_form.name.value }}',
+      },
+    },
+  }).then(function(result) {
+    if (result.error) {
+      // Show error to the customer (e.g., insufficient funds)
+      document.getElementById('card-errors').textContent = result.error.message;
+    } else {
+      if (result.paymentIntent.status === 'succeeded') {
+        // Payment succeeded
+        window.location.href = '{% url "success" %}';
+      }
+    }
+  });
+});
 
-        if (error) {
-            const errorsDiv = document.getElementById('card-errors');
-            errorsDiv.textContent = error.message;
-        } else {
-            form.submit();
-        }
-    });
