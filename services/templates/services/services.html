@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
 <section id="pricing" class="pricing-content section-padding">
     <div class="container">
@@ -9,7 +8,6 @@
         </div>
 
         <div class="row text-center">
-
             {% for service in services %}
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="pricing_design">
@@ -20,30 +18,58 @@
                             <span>{{ service.duration }}</span>
                         </div>
                         <div class="pricing-price">
-                            <!-- this was empty?? -->
+                            <!-- empty -->
                         </div>
-                        <a href="#" class="btn btn-lg price_btn">Book Now</a>
-                        
-                        <!-- Admin Only Buttons -->
-                        {% if user.is_authenticated and user.is_superuser %}
-                        <div class="admin-buttons mt-3">
-                            <a href="{% url 'edit_service' service.id %}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{% url 'delete_service' service.id %}" method="POST" style="display: inline;">
-                              {% csrf_token %}
-                              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
-                        </div>
-                        {% endif %}
+                        <!-- Trigger the modal -->
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal{{ service.id }}">
+                            Book Now
+                        </button>
                     </div>
                 </div>
             </div>
 
+            <!-- Modal for selecting date and time -->
+            <div class="modal fade" id="bookingModal{{ service.id }}" tabindex="-1" aria-labelledby="bookingModalLabel{{ service.id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="bookingModalLabel{{ service.id }}">Book {{ service.name }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="{% url 'checkout' service.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="date{{ service.id }}" class="form-label">Select Date</label>
+                                    <input type="date" id="date{{ service.id }}" name="date" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="time{{ service.id }}" class="form-label">Select Time</label>
+                                    <input type="time" id="time{{ service.id }}" name="time" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                {% if not user.is_authenticated %}
+                                <a href="{% url 'register' %}?service_id={{ service.id }}&date={{ date }}&time={{ time }}" class="btn btn-success">
+                                    Register to Checkout
+                                </a>
+                                <a href="{% url 'login' %}?next={% url 'checkout' service.id %}" class="btn btn-primary">
+                                    Login to Checkout
+                                </a>
+                                {% else %}
+                                <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
+                                {% endif %}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             {% empty %}
             <div class="col">
                 No Services Found
             </div>
             {% endfor %}
-
         </div>
     </div>
 </section>
