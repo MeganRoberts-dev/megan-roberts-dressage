@@ -1,27 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'services/css/services.css' %}">
+</head>
 <section id="pricing" class="pricing-content section-padding">
     <div class="container">
-        <div class="section-title mt-5 text-center">
+        <!-- Title Section -->
+        <div class="section-title-left mt-5">
             <h2>The services I offer</h2>
-            <p>Please <a href="{% url 'contact' %}">Contact Me</a> if you require further information.</p>
+            <p>Please <a href="{% url 'contact' %}">contact me</a> if you require further information.</p>
+            <hr class="title-underline">
         </div>
 
+        <!-- Pricing Cards -->
         <div class="row text-center">
-
             {% for service in services %}
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="pricing_design">
-                    <div class="single-pricing">
-                        <div class="price-head">
-                            <h2>{{ service.name }}</h2>
-                            <h2 class="fs-1">£{{ service.price }}</h2>
-                            <span>{{ service.duration }}</span>
-                        </div>
-                        <div class="pricing-price">
-                            <!-- empty -->
-                        </div>
+                    <!-- Image in Card -->
+                    <img src="{% static 'img/arena-1.jpeg' %}" alt="{{ service.name }}" class="card-image">
+                    
+                    <!-- Title over the image -->
+                    <div class="price-head">
+                        <h2>{{ service.name }}</h2>
+                    </div>
+
+                    <!-- Pricing Details (Initially Hidden) -->
+                    <div class="pricing-details">
+                        <h2 class="fs-1">£{{ service.price }}</h2>
+                        <span>{{ service.duration }}</span>
                         <!-- Trigger the modal -->
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal{{ service.id }}">
                             Book Now
@@ -34,10 +42,12 @@
             <div class="modal fade" id="bookingModal{{ service.id }}" tabindex="-1" aria-labelledby="bookingModalLabel{{ service.id }}" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
+                        <!-- Modal Header -->
                         <div class="modal-header">
                             <h5 class="modal-title" id="bookingModalLabel{{ service.id }}">Book {{ service.name }}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        <!-- Modal Form -->
                         <form action="{% url 'checkout' service.id %}" method="POST">
                             {% csrf_token %}
                             <div class="modal-body">
@@ -50,20 +60,15 @@
                                     <input type="time" id="time{{ service.id }}" name="time" class="form-control" required>
                                 </div>
                             </div>
+                            <!-- Modal Footer -->
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            {% empty %}
-            <div class="col">
-                No Services Found
-            </div>
             {% endfor %}
-
         </div>
     </div>
 </section>
