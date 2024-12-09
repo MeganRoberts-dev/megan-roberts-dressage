@@ -1,0 +1,287 @@
+/* General Layout for Body */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+#alerts {
+ margin-top:100px;
+}
+
+body > footer {
+  position: sticky;
+  top: 100vh;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #212529;
+  padding: 30px 0;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* --- Navbar --- */
+.navbar {
+  font-size: 2rem;
+  color: #ffffff;;
+  margin-top: 20px;
+  position: relative;
+  padding: 1rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1030;
+}
+
+nav.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #f9f9f9;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 20px;
+}
+
+.navbar .nav-link {
+  color: #f9f9f9;
+  padding: .5rem .5rem;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover {
+  color: #6dadf1;
+}
+
+.navbar-nav .nav-link.active {
+  color: #6dadf1 !important;
+  font-weight: bold;
+}
+
+.navbar-icons i {
+  margin: 0 5px;
+  font-size: 1.75rem;
+  color: #6dadf1;
+}
+
+.navbar-icons i:hover {
+  color: #ffffff;
+}
+
+.navbar-toggler {
+  color: #6dadf1;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+  color: #6dadf1;
+}
+
+.navbar-toggler:hover {
+  color: #6dadf1;
+}
+
+/* --- Responsive Styles --- */
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+  /* Accomplishments Section */
+  .accomplishments-section h2 {
+    font-size: 2rem;
+  }
+
+  .accomplishments-section .card {
+    padding: 15px;
+  }
+
+  .accomplishments-section .card .fs-1 {
+    font-size: 2.5rem;
+  }
+
+  /* Carousel */
+  .carousel {
+    height: 60vh; /* Adjust carousel height for tablet */
+  }
+
+  .carousel-item img {
+    object-position: center; /* Center images */
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    font-size: 1.5rem; /* Slightly smaller controls */
+  }
+
+  /* Hero Section */
+  .hero-section img {
+    height: 75vh; /* Adjust height for tablet */
+  }
+
+  .hero-text {
+    font-size: 2.2rem; /* Adjust hero text size */
+  }
+
+  .hero-button {
+    font-size: 1.1rem;
+    padding: 9px 18px;
+  }
+
+  /* Navbar */
+  .navbar {
+    font-size: 1.75rem; /* Adjust navbar font size */
+    padding: 1rem 1.5rem; /* Adjust padding */
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.4rem; /* Adjust brand size */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 15px; /* Adjust spacing */
+  }
+
+  .navbar-icons i {
+    font-size: 1.65rem; /* Adjust icon size */
+  }
+
+  /* Footer */
+  .footer p {
+    font-size: 0.85rem; /* Smaller footer text */
+  }
+}
+
+/* Mobile (<= 767px) */
+@media (max-width: 767px) {
+  /* Accomplishments Section */
+  .accomplishments-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .accomplishments-section .card {
+    padding: 15px;
+  }
+
+  .accomplishments-section .card .fs-1 {
+    font-size: 2rem;
+  }
+
+  .accomplishments-section .row {
+    display: block; /* Stack cards vertically */
+  }
+
+  .accomplishments-section .col-12 {
+    margin-bottom: 20px;
+  }
+
+  /* Carousel */
+  .carousel {
+    height: 50vh; /* Adjust carousel height for mobile */
+  }
+
+  .carousel-item img {
+    object-position: center; /* Center images */
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    font-size: 1.2rem; /* Smaller controls */
+  }
+
+  /* Hero Section */
+  .hero-section img {
+    height: 70vh; /* Reduced height for mobile */
+  }
+
+  .hero-text {
+    font-size: 1.8rem; /* Smaller hero text */
+  }
+
+  .hero-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  /* Navbar */
+  .navbar {
+    font-size: 1.5rem; /* Smaller navbar text */
+    padding: 1rem 1.2rem;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.25rem; /* Adjust brand size */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 10px; /* Adjust spacing */
+  }
+
+  .navbar-icons i {
+    font-size: 1.5rem; /* Adjust icon size */
+  }
+
+  /* Footer */
+  .footer p {
+    font-size: 0.8rem; /* Smaller footer text */
+  }
+}
+
+/* Desktop (Large Screens, 1025px and above) */
+@media (min-width: 1025px) {
+  /* Navbar */
+  .navbar {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0 25px;
+  }
+
+  .navbar-icons i {
+    font-size: 1.75rem;
+  }
+
+  /* Hero Section */
+  .hero-section img {
+    height: 80vh; /* Larger height for hero section on large screens */
+  }
+
+  .hero-text {
+    font-size: 2.5rem; /* Larger text for hero section */
+  }
+
+  .hero-button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+
+  /* Footer */
+  .footer p {
+    font-size: 1rem;
+  }
+}
