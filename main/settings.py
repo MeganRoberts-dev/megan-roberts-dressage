@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'services',
     'contact',
     'checkout',
-    'users',
     'crispy_forms',
     'crispy_bootstrap5',
     'django.contrib.sites',
