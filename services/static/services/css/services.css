@@ -1,0 +1,172 @@
+/* General Section */
+#pricing {
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.section-title-left {
+  text-align: left; 
+  padding-top: 80px;
+  margin-bottom: 40px; 
+}
+
+.section-title-left h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-title-left p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.title-underline {
+  width: 50%;
+  height: 3px;
+  background-color: #000;
+  margin-top: 10px;
+  margin-left: 0;
+}
+
+#pricing img {
+  max-width: 50%;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Pricing Design */
+.pricing_design {
+  position: relative;
+  background-color: #403c3c;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* To ensure content does not overflow the card */
+}
+
+.pricing_design:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Image inside card */
+.pricing_design .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Makes sure the image fills the entire container */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Keep the image behind the text */
+}
+
+/* Title on top of the image */
+.pricing_design .price-head h2 {
+  position: relative;
+  z-index: 1; /* Make sure title is on top of the image */
+  color: white;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Optional: adds shadow for better readability */
+}
+
+/* Pricing Details (Initially Hidden) */
+.pricing_design .pricing-details {
+  position: relative;
+  z-index: 2;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  text-align: center;
+}
+
+/* Show details and button on hover */
+.pricing_design:hover .pricing-details {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pricing_design span {
+  display: block;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.pricing_design button {
+  margin-top: 15px;
+  background-color: #6dadf1;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.pricing_design button:hover {
+  background-color: #0056b3;
+}
+
+/* Modal Design */
+.modal-content {
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  padding: 20px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header, .modal-footer {
+  border: none;
+  background-color: #6dadf1;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 15px;
+}
+
+.modal-footer button {
+  background-color: #0056b3;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.modal-footer button:hover {
+  background-color: #003f8a;
+}
+
+/* Dark Form */
+.small-dark-form-container {
+  margin-top: 20vh;
+  color: black;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.dark-form-card {
+  background-color: #1e1e1e;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+}
+
+.dark-form-card h2 {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #6dadf1;
+  border-color: #6dadf1;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
