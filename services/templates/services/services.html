@@ -62,8 +62,8 @@
                             </div>
                             <!-- Modal Footer -->
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
-                            </div>
+                                <a href="{% url 'checkout' service_id=service.id %}" class="btn btn-primary">Proceed to Checkout</a>
+                            </div>                            
                         </form>
                     </div>
                 </div>
