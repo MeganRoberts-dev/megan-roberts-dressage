@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Service
 from .forms import ServiceForm
 
-
 def services(request):
     services = Service.objects.all().order_by('price')
     template = 'services/services.html'
@@ -12,10 +11,6 @@ def services(request):
         'services': services,
     }
     return render(request, template, context)
-
-def service_list(request):
-    services = Service.objects.all()
-    return render(request, 'services.html', {'services': services})
 
 @login_required
 def add_service(request):
@@ -38,7 +33,6 @@ def add_service(request):
         'service_form': service_form,
     }
     return render(request, template, context)
-
 
 @login_required
 def edit_service(request, id):
@@ -63,7 +57,6 @@ def edit_service(request, id):
         'service_form': service_form,
     }
     return render(request, template, context)
-
 
 @login_required
 def delete_service(request, id):
