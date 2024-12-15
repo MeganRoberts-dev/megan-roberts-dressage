@@ -2,48 +2,58 @@
 {% load static %}
 {% block content %}
 
-
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<div class="checkout">
+    <div class="section-title-left mt-5">
+        <h2><u>Checkout</u></h2>
+    </div>
 
-<div class="checkout-card mx-auto">
-    <h2>Checkout</h2>
-
-    <form method="post" action="/success/">
-        {% csrf_token %}
-
-        <label for="full_name">Full Name:</label>
-        <input type="text" id="full_name" name="full_name" required>
-
-        <label for="full_name">Email:</label>
-        <input type="text" id="full_name" name="full_name" required>
-
-        <label for="date">Choose Date:</label>
-        <input type="date" id="date" name="date" required>
-
-        <label for="time">Choose Time:</label>
-        <input type="time" id="time" name="time" required>
-
-        <div class="divider"></div>
-
+    <div class="checkout-card mx-auto">
+        <!-- Service Info Section (Left) -->
         <div class="service-info">
-            <img src="/static/images/service.jpg" alt="Service Image">
-            <span>Service: Premium Cleaning</span>
+            <img src="{% if service.image %}{{ service.image.url }}{% else %}{% static 'img/default-image.jpg' %}{% endif %}"
+                alt="Service Image">
+            <span>Service: {{ service.name }}</span>
+            <div class="price-section">
+                Total: £<strong>{{ service.price }}</strong>
+            </div>
         </div>
 
-        <div class="divider"></div>
+        <!-- Checkout Form Section (Right) -->
+        <form method="post" action="{% url 'success' %}" id="checkout-form" class="checkout-form"><h4><div class="text-center">Details</div></h4>
+            {% csrf_token %}
 
-        <div class="price-section">
-            Total: <strong>$49.99</strong>
-        </div>
+            <!-- Full Name Input -->
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" name="full_name" required>
 
-        <button type="submit">Proceed to Payment</button>
-    </form>
+            <!-- Email Input -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <!-- Phone Number Input -->
+            <label for="phone_number">Phone Number:</label>
+            <input type="tel" id="phone_number" name="phone_number" required>
+
+            <!-- Date Input -->
+            <label for="date">Choose Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <!-- Time Input -->
+            <label for="time">Choose Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <!-- Stripe Payment Section -->
+            <div class="payment-section">
+                <label for="card-element">Credit or Debit Card</label>
+                <div id="card-element"></div>
+                <div id="card-errors" role="alert"></div>
+            </div>
+
+            <button type="submit" id="submit-button">Proceed to Payment</button>
+        </form>
+    </div>
 </div>
-
 <script src="https://js.stripe.com/v3/"></script>
-<script>
-    // Example JS to handle payment processing logic if needed
-    // Stripe setup can be integrated here.
-</script>
 
 {% endblock %}
