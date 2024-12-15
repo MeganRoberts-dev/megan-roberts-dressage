@@ -6,48 +6,27 @@
 
 ### Welcome to the World of Dressage**  
 
-Step into the elegant, disciplined world of dressage with the **Megan Roberts Dressage** platform—a sleek, professional website designed to captivate, engage, and inspire! This isn't just a website; it’s a gateway to experiencing world-class dressage services, learning more about Megan’s expertise, and booking sessions with ease. Whether you're a seasoned equestrian or a passionate newcomer, this platform is tailored to meet your needs and exceed expectations.  
+Step into the elegant world of dressage with Megan Roberts Dressage—a sleek, professional platform I’ve personally created to showcase my career in dressage and my new skills as a developer. Over the past year, I’ve been diving into software development, mastering HTML, CSS, Python, JavaScript, and the Django framework, and this app is the culmination of that journey. 
 
-### What Sets This Platform Apart?  
+### What Makes It Special?
 
 **A Seamless Booking Experience with Secure Payments:**  
-Gone are the days of complicated bookings! Users can effortlessly book Megan’s services directly through the site with a smooth and secure checkout powered by **Stripe**. Every transaction is handled with the utmost security, ensuring peace of mind for every client.  
+Booking sessions is effortless with a smooth checkout system powered by Stripe, ensuring secure and hassle-free transactions.
 
-**Immersive About Section with Stunning Visuals:**  
-Curious about Megan’s journey in the world of dressage? Dive into an **immersive “About” section** that beautifully showcases her story, achievements, and passion for dressage. Accompanied by stunning visuals, this section offers a glimpse into Megan’s world, bringing her expertise to life.  
+**A Personal Touch:**  
+The vibrant “About” section shares my dressage journey—my achievements, my passion, and the artistry of this sport—brought to life with stunning visuals.
 
-**Effortless Communication & Automatic Email Responses:**  
-Need to reach out? The platform features a **smart contact system** where users can send inquiries, and they’ll immediately receive a polite, automated response email—letting them know their message has been received and is being handled. This ensures prompt communication and a professional touch, every time.  
+**Smart Communication Features:**  
+Reach out easily with the contact system and receive instant email responses, blending professionalism with convenience.
 
-**Location Details Made Easy:**  
-Finding Megan’s training facilities is a breeze with an integrated location section, ensuring users have all the details they need to plan their visit or session.  
+**Simple Location Details:**  
+Plan your visit with ease, thanks to integrated location information.
 
-**Efficient Admin & Data Management:**  
-Behind the scenes, the site empowers Megan with full control. From managing bookings to responding to inquiries, everything is streamlined through a powerful admin dashboard, making business management both simple and effective.  
+**Why This Matters**  
+This platform is more than just a website—it’s a reflection of my dedication to both dressage and software development. It’s about blending the elegance of equestrian sport with cutting-edge technology, creating a space that’s inspiring, functional, and personal.
 
-### Who’s It For?  
+Whether you're an equestrian enthusiast or curious about dressage, this platform is designed to connect and inspire. Built with heart, passion, and code — this is Megan Roberts Dressage.
 
-Whether you're a **dressage enthusiast**, a **horse owner**, or someone looking to experience the artistry of dressage, this site is for you! Megan Roberts Dressage isn’t just about showcasing services; it’s about connecting with people who share a passion for this beautiful sport.  
-
-### Why It’s Exciting  
-
-This platform is more than just a business page—it’s a **digital experience** that blends functionality with elegance. It puts clients at the center of the action, making it easy to book sessions, explore services, and stay connected. By bringing together the best of design and technology, the site ensures that every interaction feels personal, seamless, and inspiring.  
-
-Your journey with Megan Roberts Dressage starts here! 
-
-
-Don't add screenshots for the README/TESTING into your `assets` or `static` folders. Create a new folder at the root-level called `documentation`. Consider creating sub-directories within `documentation` to handle things like `wireframes`, `features`, `validation`, `responsiveness`, etc.
-
-**Site Mockups**
-*([amiresponsive](https://ui.dev/amiresponsive?url=https://megan-roberts-dressage-48ee9d19dcc1.herokuapp.com), [techsini](https://techsini.com/multi-mockup), etc.)*
-Having issues generating site mockups? This is likely due to security policies with your deployed site.
-If you open up your DevTools, there may be an error referencing `X-Frame-Options`.
-
-For Chrome users, head over to http://bit.ly/3iRPn4u and install the extension within your browser. Once installed, navigate back to the mockup site of your choice. You should find your site rendering in the various devices now.
-
-Alternatively, open your project in Gitpod and run the server. Once the site is running, click the `Ports` tab from your Gitpod Terminal. Click the padlock on the appropriate port for your project (`Flask: 5000`, `Django: 8000`). This will make your local page public temporarily. Now, copy the URL of your live-preview page into the responsive tool above. You should find your site rendering in the various devices.
-
-🛑 --- END ---- 🛑
 
 ![screenshot](documentation/mockup.png)
 
@@ -67,15 +46,7 @@ I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to ge
 ![screenshot](documentation/coolors.png)
 
 ### Typography
-
-⚠️ INSTRUCTIONS ⚠️
-
-Explain any fonts and icon libraries used, like **Google Fonts**, **Font Awesome**, etc. Consider adding a link to each font used, the Font Awesome site (if used), or similar icon library.
-
-⚠️ --- END --- ⚠️
-
-- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
-- [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
+<NEED TO DO>
 - [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
 ## User Stories

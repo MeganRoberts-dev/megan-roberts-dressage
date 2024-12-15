@@ -7,10 +7,6 @@ import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
-def success(request):
-    """Display the success page after payment"""
-    return render(request, 'success.html')
-
 def checkout(request, service_id):
     service = get_object_or_404(Service, id=service_id)
 
@@ -35,11 +31,10 @@ def checkout(request, service_id):
         # Create Order
         full_name = request.POST.get('full_name', None)
         order = Order.objects.create(
-        purchaser=request.user if request.user.is_authenticated else None,
-        full_name=full_name,
-        total=service.price,
+            purchaser=request.user if request.user.is_authenticated else None,
+            full_name=full_name,
+            total=service.price,
         )
-
 
         # Create Booking
         Booking.objects.create(
@@ -61,11 +56,14 @@ def checkout(request, service_id):
             stripe_public_key = settings.STRIPE_PUBLIC_KEY
             client_secret = intent.client_secret
 
+            # Pass the necessary data to the success page
             context = {
-                'order_form': order,
+                'order': order,
+                'service': service,
                 'stripe_public_key': stripe_public_key,
                 'client_secret': client_secret,
-                'service': service
+                'date': date,
+                'time': time
             }
 
             # Return the checkout page with payment details
@@ -79,3 +77,21 @@ def checkout(request, service_id):
     # Redirect to success page if the form indicates successful payment
     if request.method == 'POST' and 'payment_success' in request.POST:
         return redirect('success')
+
+
+def success(request):
+    """Display the success page after payment"""
+    order_number = request.GET.get('order_number')  # Retrieve the order number if available
+    date = request.GET.get('date')  # Retrieve the date chosen
+    time = request.GET.get('time')  # Retrieve the time chosen
+    total = request.GET.get('total')  # Retrieve the total amount
+
+    # Display order details on success page
+    context = {
+        'order_number': order_number,
+        'date': date,
+        'time': time,
+        'total': total,
+    }
+
+    return render(request, 'checkout/success.html', context)
