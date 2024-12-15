@@ -1,3 +1,4 @@
+/* Contact styling */ 
 .contact-section {
   padding: 30px 0;
   margin-top: 30px;
@@ -6,8 +7,9 @@
   justify-content: center;
   align-items: stretch; 
 }
+
 h2 {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .contact-card,
