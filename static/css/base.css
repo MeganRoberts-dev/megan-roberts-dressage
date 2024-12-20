@@ -5,6 +5,10 @@
   box-sizing: border-box;
   }
 
+span {
+    color: #6dadf1 !important;
+  }
+
 html, body {
   height: 100%;
 }
