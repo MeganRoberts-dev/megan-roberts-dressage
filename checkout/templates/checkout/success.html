@@ -8,11 +8,13 @@
     <h1>Order Confirmation</h1>
     <p>Your order has been successfully placed!</p>
 
-    <p><strong>Order Number:</strong> {{ order_number }}</p>
-    <p><strong>Service:</strong> {{ service_name }}</p>
-    <p><strong>Chosen Date:</strong> {{ order_date }}</p>
-    <p><strong>Chosen Time:</strong> {{ order_time }}</p>
-    <p><strong>Total:</strong> ${{ service_price }}</p>
+    <p><strong>Order Number:</strong> {{ order.id }}</p>
+    {% for booking in order.bookings.all %}
+    <p><strong>Service:</strong>{{ booking.service.name }}</p>
+    <p><strong>Chosen Date:</strong> {{ booking.date }}</p>
+    <p><strong>Chosen Time:</strong> {{ booking.time }}</p>
+    {% endfor %}
+    <p><strong>Total:</strong> £{{ order.total }}</p>
 
     <p>Thank you for your order. You will receive an email confirmation shortly.</p>
   </div>

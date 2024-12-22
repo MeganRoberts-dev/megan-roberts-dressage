@@ -125,11 +125,11 @@ def checkout(request, service_id):
 
 def success(request, order_id):
     """Display the success page after payment"""
-    order_number = get_object_or_404(Order, id=order_id)
+    order = get_object_or_404(Order, id=order_id)
     
     # Display order details on success page
     context = {
-        'order_number': order_number,
+        'order': order,
     }
 
     return render(request, 'checkout/success.html', context)
