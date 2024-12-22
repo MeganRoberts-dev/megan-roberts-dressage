@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
 from django.conf import settings
+from django.core.mail import send_mail
 from django.contrib import messages
 from .models import Order, Booking
 from services.models import Service
@@ -88,48 +90,40 @@ def checkout(request, service_id):
 
         return redirect(reverse('success', kwargs={'order_id': order.id}))
 
-        # try:
-        #     # Create a Stripe PaymentIntent
-        #     intent = stripe.PaymentIntent.create(
-        #         amount=int(service.price * 100),
-        #         currency=settings.STRIPE_CURRENCY,
-        #         metadata={'order_id': order.id},
-        #     )
-
-        #     # Get Stripe keys for client-side
-        #     client_secret = intent.client_secret
-
-        #     # Pass the necessary data to the success page
-        #     context = {
-        #         'order': order,
-        #         'service': service,
-        #         'stripe_public_key': stripe_public_key,
-        #         'client_secret': client_secret,
-        #         'date': date,
-        #         'time': time,
-        #     }
-
-        #     # Return the checkout page with payment details
-        #     return render(request, 'checkout/checkout.html', context)
-
-        # except stripe.error.StripeError as e:
-        #     # Handle Stripe errors
-        #     messages.error(request, f"Payment error: {e.user_message}")
-        #     return render(request, 'checkout/checkout.html', {'service': service})
-
-
-    # # Redirect to success page if the form indicates successful payment
-    # if request.method == 'POST' and 'payment_success' in request.POST:
-    #     return redirect('success')
-
 
 def success(request, order_id):
-    """Display the success page after payment"""
+    """Display the success page after payment and send a confirmation email."""
     order = get_object_or_404(Order, id=order_id)
-    
-    # Display order details on success page
+    bookings = order.bookings.all()  # Use related_name to fetch all bookings for this order
+
+    # Send confirmation email
+    email_to = order.email or (order.purchaser.email if order.purchaser else None)
+    if email_to:
+        subject = "Your Booking Confirmation - Megan Roberts Dressage"
+        from_email = settings.DEFAULT_FROM_EMAIL
+
+        # Prepare email context
+        email_context = {
+            'order': order,
+            'bookings': bookings,
+        }
+
+        # Render email template
+        html_content = render_to_string('checkout/booking_email.html', email_context)
+
+        # Send email
+        send_mail(
+            subject,
+            '',  # Empty plain-text message
+            from_email,
+            [email_to],
+            html_message=html_content
+        )
+
+    # Context for success page
     context = {
         'order': order,
+        'bookings': bookings,
     }
 
     return render(request, 'checkout/success.html', context)
