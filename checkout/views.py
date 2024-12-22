@@ -1,11 +1,23 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.views.decorators.http import require_POST
 from django.conf import settings
 from django.contrib import messages
 from .models import Order, Booking
 from services.models import Service
 import stripe
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid)
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'error, please try again')
+        return HttpResponse(content=e, status=400)
+        
 
 def add_to_checkout(request, service_id):
     service = get_object_or_404(Service, id=service_id)
@@ -19,12 +31,30 @@ def add_to_checkout(request, service_id):
     request.session.modified = True
     return redirect('checkout')
 
+
 def checkout(request, service_id):
     service = get_object_or_404(Service, id=service_id)
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     # Handle GET request to display the checkout page
     if request.method == 'GET':
-        context = {'service': service}
+        # Create a Stripe PaymentIntent
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount=int(service.price * 100),
+            currency=settings.STRIPE_CURRENCY,
+        )
+
+        # Get Stripe keys for client-side
+        client_secret = intent.client_secret
+
+        context = {
+            'service': service,
+            'stripe_public_key': stripe_public_key,
+            'stripe_secret_key': stripe_secret_key,
+            'client_secret': intent.client_secret,
+        }
         return render(request, 'checkout/checkout.html', context)
 
     # Handle POST request to process the form submission
@@ -56,54 +86,50 @@ def checkout(request, service_id):
             time=time
         )
 
-        try:
-            # Create a Stripe PaymentIntent
-            intent = stripe.PaymentIntent.create(
-                amount=int(service.price * 100),
-                currency='usd',
-                metadata={'order_id': order.id},
-            )
+        return redirect(reverse('success', kwargs={'order_id': order.id}))
 
-            # Get Stripe keys for client-side
-            stripe_public_key = settings.STRIPE_PUBLIC_KEY
-            client_secret = intent.client_secret
+        # try:
+        #     # Create a Stripe PaymentIntent
+        #     intent = stripe.PaymentIntent.create(
+        #         amount=int(service.price * 100),
+        #         currency=settings.STRIPE_CURRENCY,
+        #         metadata={'order_id': order.id},
+        #     )
 
-            # Pass the necessary data to the success page
-            context = {
-                'order': order,
-                'service': service,
-                'stripe_public_key': stripe_public_key,
-                'client_secret': client_secret,
-                'date': date,
-                'time': time
-            }
+        #     # Get Stripe keys for client-side
+        #     client_secret = intent.client_secret
 
-            # Return the checkout page with payment details
-            return render(request, 'checkout/checkout.html', context)
+        #     # Pass the necessary data to the success page
+        #     context = {
+        #         'order': order,
+        #         'service': service,
+        #         'stripe_public_key': stripe_public_key,
+        #         'client_secret': client_secret,
+        #         'date': date,
+        #         'time': time,
+        #     }
 
-        except stripe.error.StripeError as e:
-            # Handle Stripe errors
-            messages.error(request, f"Payment error: {e.user_message}")
-            return render(request, 'checkout/checkout.html', {'service': service})
+        #     # Return the checkout page with payment details
+        #     return render(request, 'checkout/checkout.html', context)
 
-    # Redirect to success page if the form indicates successful payment
-    if request.method == 'POST' and 'payment_success' in request.POST:
-        return redirect('success')
+        # except stripe.error.StripeError as e:
+        #     # Handle Stripe errors
+        #     messages.error(request, f"Payment error: {e.user_message}")
+        #     return render(request, 'checkout/checkout.html', {'service': service})
 
 
-def success(request):
+    # # Redirect to success page if the form indicates successful payment
+    # if request.method == 'POST' and 'payment_success' in request.POST:
+    #     return redirect('success')
+
+
+def success(request, order_id):
     """Display the success page after payment"""
-    order_number = request.GET.get('order_number')  # Retrieve the order number if available
-    date = request.GET.get('date')  # Retrieve the date chosen
-    time = request.GET.get('time')  # Retrieve the time chosen
-    total = request.GET.get('total')  # Retrieve the total amount
-
+    order_number = get_object_or_404(Order, id=order_id)
+    
     # Display order details on success page
     context = {
         'order_number': order_number,
-        'date': date,
-        'time': time,
-        'total': total,
     }
 
     return render(request, 'checkout/success.html', context)
