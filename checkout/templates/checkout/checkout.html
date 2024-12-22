@@ -17,6 +17,10 @@
             <div class="price-section">
                 Total: £<strong>{{ service.price }}</strong>
             </div>
+            <form action="{% url 'delete_service' service.id %}" method="POST" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                </form>
         </div>
 
         <!-- Checkout Form Section (Right) -->

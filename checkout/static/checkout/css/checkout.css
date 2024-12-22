@@ -111,6 +111,11 @@
     border-radius: 5px;
 }
 
+.success {
+    padding-left: 5%; 
+    max-width: 800px; 
+    margin: auto;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .checkout-card {

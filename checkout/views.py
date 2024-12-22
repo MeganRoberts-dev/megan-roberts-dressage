@@ -7,6 +7,18 @@ import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+def add_to_checkout(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    if 'checkout_services' not in request.session:
+        request.session['checkout_services'] = []
+
+    # Add the service to the checkout if not already there
+    if service_id not in request.session['checkout_services']:
+        request.session['checkout_services'].append(service_id)
+
+    request.session.modified = True
+    return redirect('checkout')
+
 def checkout(request, service_id):
     service = get_object_or_404(Service, id=service_id)
 
@@ -95,3 +107,19 @@ def success(request):
     }
 
     return render(request, 'checkout/success.html', context)
+
+def delete_service(request, service_id):
+    if request.method == "POST":
+        # Ensure the service exists
+        get_object_or_404(Service, id=service_id)
+
+        # Check if the service is in the user's session (checkout)
+        if 'checkout_services' in request.session:
+            checkout_services = request.session['checkout_services']
+            if service_id in checkout_services:
+                checkout_services.remove(service_id)
+                request.session['checkout_services'] = checkout_services
+                request.session.modified = True
+
+        # Redirect back to the services page
+        return redirect('services')

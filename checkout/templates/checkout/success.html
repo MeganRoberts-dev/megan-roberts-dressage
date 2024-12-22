@@ -2,17 +2,21 @@
 {% load static %}
 
 {% block content %}
-  <h1>Order Confirmation</h1>
-  <p>Your order has been successfully placed!</p>
-  
-  <!-- Display the Order Info -->
-  <p><strong>Order Number:</strong> {{ order_number }}</p>
-  <p><strong>Service:</strong> {{ service_name }}</p>
-  <p><strong>Chosen Date:</strong> {{ order_date }}</p>
-  <p><strong>Chosen Time:</strong> {{ order_time }}</p>
-  <p><strong>Total:</strong> ${{ service_price }}</p>
-  
 
-  <p>Thank you for your order. You will receive an email confirmation shortly.</p>
+<div class="d-flex justify-content-left align-items-center min-vh-100">
+  <div class="success text-start" style="max-width: 600px;">
+    <h1>Order Confirmation</h1>
+    <p>Your order has been successfully placed!</p>
+
+    <p><strong>Order Number:</strong> {{ order_number }}</p>
+    <p><strong>Service:</strong> {{ service_name }}</p>
+    <p><strong>Chosen Date:</strong> {{ order_date }}</p>
+    <p><strong>Chosen Time:</strong> {{ order_time }}</p>
+    <p><strong>Total:</strong> ${{ service_price }}</p>
+
+    <p>Thank you for your order. You will receive an email confirmation shortly.</p>
+  </div>
+</div>
+
 {% endblock %}
 
