@@ -27,7 +27,7 @@
 
           <!-- Form -->
           <div class="card dark-form-card">
-            <form method="post" novalidate>
+            <form method="post" novalidate enctype="multipart/form-data">
               {% csrf_token %}
               {{ service_form.as_p }}
               <button type="submit" class="btn btn-primary w-100 mt-3">Add Service</button>

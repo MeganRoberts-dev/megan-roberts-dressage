@@ -26,7 +26,7 @@
                         </div>
 
                         <!-- Image in Card (Dynamically loaded) -->
-                        <img src="{% if service.image %}{{ service.image.url }}{% else %}{% static 'img/default-image.jpg' %}{% endif %}" 
+                        <img src="{% if 'placeholder' not in service.image.url %}{{ service.image.url }}{% else %}{% static 'img/default-image.jpg' %}{% endif %}" 
                              alt="{{ service.name }}" class="card-image">
 
                         <!-- Pricing Details (Initially Hidden) -->

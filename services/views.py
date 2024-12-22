@@ -19,8 +19,8 @@ def add_service(request):
         messages.error(request, "Access denied: Invalid credentials")
         return redirect("home")
 
-    service_form = ServiceForm(request.POST or None)
     if request.method == "POST":
+        service_form = ServiceForm(request.POST or None, request.FILES)
         if service_form.is_valid():
             service_form.save()
             messages.success(request, "Service Added!")
@@ -28,6 +28,7 @@ def add_service(request):
 
         messages.error(request, "Error: Please try again")
 
+    service_form = ServiceForm(request.POST or None)
     template = 'services/add-service.html'
     context = {
         'service_form': service_form,

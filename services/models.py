@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class Service(models.Model):
@@ -7,7 +8,9 @@ class Service(models.Model):
     description = models.TextField()
     price = models.PositiveIntegerField(null=False, blank=False)
     duration = models.CharField(max_length=100, null=False, blank=False)
-    image = models.ImageField(upload_to='services/', null=True, blank=True)
+    image = CloudinaryField(
+        "image", default='placeholder',
+        null=True, blank=True)
 
     def __str__(self):
         return self.name
