@@ -6,7 +6,7 @@ var card = elements.create('card');
 card.mount('#card-element');
 
 // Handle form submission
-var form = document.querySelector('checkout-form');
+var form = document.getElementById('checkout-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
   $('#submit-button').attr('disabled', true);
