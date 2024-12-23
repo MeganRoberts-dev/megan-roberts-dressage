@@ -2,59 +2,44 @@
 {% load static %}
 {% block content %}
 
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'services/css/services.css' %}">
-</head>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services/css/services.css' %}">
+{% endblock %}
 
 <section id="pricing" class="pricing-content section-padding">
     <div class="container">
-        <!-- Title Section -->
         <div class="section-title-left mt-5">
             <h1 class="mb-4">The services I offer<span>.</span></h1>
             <p>Please <a href="{% url 'contact' %}">contact me</a> if you require further information.</p>
             <hr style="border: 1px solid #333; width: 100%; margin: 40px auto 20px;">
         </div>
 
-        <!-- Pricing Cards -->
         <div class="row text-center">
             {% for service in services %}
-                <div class="col-lg-4 col-sm-6 col-xs-12"> <!-- Added column class -->
+                <div class="col-lg-4 col-sm-6 col-xs-12">
                     <div class="pricing_design">
-                        <!-- Title over the image -->
                         <div class="price-head">
                             <h3>{{ service.name }}</h3>
                         </div>
-
-                        <!-- Image in Card (Dynamically loaded) -->
                         <img src="{% if 'placeholder' not in service.image.url %}{{ service.image.url }}{% else %}{% static 'img/default-image.jpg' %}{% endif %}" 
                              alt="{{ service.name }}" class="card-image">
-
-                        <!-- Pricing Details (Initially Hidden) -->
                         <div class="pricing-details">
                             <h5 class="fs-3">£{{ service.price }}</h5>
                             <span class="fs-7">{{ service.duration }}</span>
-
-                            <!-- Proceed to Checkout Button -->
-                            <button>
-                                <a href="{% url 'checkout' service_id=service.id %}">Proceed to Checkout</a>
-                            </button>
+                            <a href="{% url 'checkout' service_id=service.id %}" class="btn btn-primary mt-3">Proceed to Checkout</a>
                         </div>
                     </div>
 
-                    <!-- Admin Only Buttons (Inside the loop) -->
                     {% if user.is_authenticated and user.is_superuser %}
                     <div class="admin-buttons mt-3">
-                        <!-- Edit Service Button -->
                         <a href="{% url 'edit_service' service.id %}" class="btn btn-warning btn-sm">Edit</a>
-                        
-                        <!-- Delete Service Button -->
                         <form action="{% url 'delete_service_admin' service.id %}" method="POST" style="display: inline;">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                         </form>
                     </div>
-                 {% endif %}                
-                </div> <!-- End of column -->
+                 {% endif %}
+                </div>
             {% empty %}
                 <div class="col">
                     No Services Found
