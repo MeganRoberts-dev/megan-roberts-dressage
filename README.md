@@ -56,14 +56,10 @@ I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to ge
 | As a guest user | I would like to securely pay for my booking through Stripe | so that I feel confident in the safety of my transaction. |
 | As a guest user | I would like to receive a confirmation email after booking a service or submitting a form | so that I can verify my appointment or quarry details. |
 | As a returning client | I would like to quickly book additional services | so that I can easily schedule future lessons. |
-| As a returning client | I would like to recommend the website to friends | so that they can also book services with ease. |
-| As an admin user | I would like to manage service bookings | so that I can keep track of appointments and clients. |
-| As an admin user | I would like to view and respond to customer inquiries | so that I can provide excellent customer service. |
 | As an admin user | I would like to update service details and pricing | so that clients always have accurate information. |
 | As an admin user | I would like to track payments and bookings | so that I can ensure all transactions are accounted for. |
 | As an admin user | I would like to send follow-up emails to clients | so that I can maintain good communication and gather feedback. |
-| As a general user | I would like to navigate the website easily on any device | so that I can access services on both desktop and mobile. |
-| As a general user | I would like the website to be visually appealing and professional | so that it reflects the quality of the services offered. |
+
 
 ## Wireframes
 
@@ -84,14 +80,10 @@ I've used [Figma](https://www.figma.com/board/l2P9ZpD1xivVZg4eyKb2yn/Megan-Rober
 | Service Details | Displays detailed information about a selected product, including its name, description, price, an image, and available sizes. | ![screenshot](documentation/features/services.png) |
 | Proceed to checkout | Users can view the contents of their service or remove item. | ![screenshot](documentation/features/checkout-delete.png) |
 | Checkout | Users can checkout as guests, provide their delivery details and payment information using Stripe integration. | ![screenshot](documentation/features/checkout.png) |
-| Order Confirmation | Users receive an on-screen and email confirmation with details of their purchase. | ![screenshot](documentation/features/) |
+| Order Confirmation | Users receive an on-screen and email confirmation with details of their purchase. | ![screenshot](documentation/features/order-confirm.png) |
 | Product Management | Superusers can add, edit, and delete products from the site via a CRUD interface. | ![screenshot](documentation/features/admin-delete.png) ![screenshot](documentation/features/admin-edit.png) |
 | Contact | Users can submit a message via the contact form, which stores their name, email, and message in the database. | ![screenshot](documentation/features/form.png) |
-| User Feedback | Clear and concise Django messages are used to provide feedback to users when interacting with various features (e.g., adding products to the bag, checking out, etc.). | ![screenshot](documentation/features/user-feedback.png) |
 | Heroku Deployment | The site is deployed to Heroku, making it accessible online for users. | ![screenshot](documentation/features/heroku.png) |
-| SEO | SEO optimization with a sitemap.xml, robots.txt, and appropriate meta tags to improve search engine visibility. | ![screenshot](documentation/features/seo.png) |
-| Marketing | Social media presence is available in the footer using external links. | ![screenshot](documentation/features/marketing.png) |
-| 404 | The 404 error page will indicate when a user has navigated to a page that doesn't exist, replacing the default Heroku 404 page with one that ties into the site's look and feel. | ![screenshot](documentation/features/404.png) |
 
 ### Future Features
 
