@@ -1,4 +1,10 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render,
+    redirect,
+    reverse,
+    get_object_or_404,
+    HttpResponse
+)
 from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
 from django.conf import settings
@@ -36,7 +42,6 @@ def add_to_checkout(request, service_id):
 
 
 def checkout(request, service_id):
-    """Handle the checkout process, including creating Stripe payment intent."""
     service = get_object_or_404(Service, id=service_id)
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -65,7 +70,9 @@ def checkout(request, service_id):
         full_name = request.POST.get('full_name')
 
         if not all([date, time, email]):
-            messages.error(request, "Please fill in all the required fields, including email.")
+            messages.error(
+                request,
+                "Please fill in all the required fields, including email.")
             return redirect('checkout', service_id=service.id)
 
         # Create Order and Booking
@@ -125,13 +132,15 @@ def delete_service(request, service_id):
 
         if 'checkout_services' in request.session:
             checkout_services = request.session['checkout_services']
-    
             if service_id in checkout_services:
                 checkout_services.remove(service_id)
                 request.session['checkout_services'] = checkout_services
                 request.session.modified = True
 
-                messages.success(request, f"Service '{service.name}' has been removed from your checkout.")
+                messages.success(
+                request,
+                f"Service '{service.name}' has been removed from your checkout."
+                )
 
         else:
             messages.error(request, "No services in the checkout session.")
