@@ -96,7 +96,7 @@ def success(request, order_id):
         to_email = [order.email]
 
         # Prepare the HTML content for the email
-        html_content = render_to_string('checkout/email_confirmation.html', {
+        html_content = render_to_string('checkout/booking-email.html', {
             'order': order,
             'bookings': order.bookings.all(),
         })
