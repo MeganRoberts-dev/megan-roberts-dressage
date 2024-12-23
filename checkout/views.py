@@ -118,15 +118,22 @@ def success(request, order_id):
 
 
 def delete_service(request, service_id):
-    """Remove a service from the checkout session."""
+    """Remove a service from the checkout session (NOT from the database)."""
     if request.method == "POST":
-        get_object_or_404(Service, id=service_id)
+
+        service = get_object_or_404(Service, id=service_id)
 
         if 'checkout_services' in request.session:
             checkout_services = request.session['checkout_services']
+    
             if service_id in checkout_services:
                 checkout_services.remove(service_id)
                 request.session['checkout_services'] = checkout_services
                 request.session.modified = True
 
-        return redirect('services')
+                messages.success(request, f"Service '{service.name}' has been removed from your checkout.")
+
+        else:
+            messages.error(request, "No services in the checkout session.")
+
+    return redirect('services')

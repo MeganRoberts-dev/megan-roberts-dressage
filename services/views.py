@@ -60,13 +60,16 @@ def edit_service(request, id):
     return render(request, template, context)
 
 @login_required
-def delete_service(request, id):
-    """Delete an existing service as superuser"""
+def delete_service_admin(request, id):
+    """Delete a service from the database (only accessible by superuser)"""
     if not request.user.is_superuser:
         messages.error(request, "Access denied: Invalid credentials")
         return redirect("home")
 
     service = get_object_or_404(Service, id=id)
+    
+    # Delete the service from the database
     service.delete()
-    messages.success(request, "Service Deleted!")
+
+    messages.success(request, f"Service '{service.name}' has been deleted.")
     return redirect('services')
