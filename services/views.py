@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Service
 from .forms import ServiceForm
 
+
 def services(request):
     services = Service.objects.all().order_by('price')
     template = 'services/services.html'
@@ -11,6 +12,7 @@ def services(request):
         'services': services,
     }
     return render(request, template, context)
+
 
 @login_required
 def add_service(request):
@@ -34,6 +36,7 @@ def add_service(request):
         'service_form': service_form,
     }
     return render(request, template, context)
+
 
 @login_required
 def edit_service(request, id):
@@ -59,6 +62,7 @@ def edit_service(request, id):
     }
     return render(request, template, context)
 
+
 @login_required
 def delete_service_admin(request, id):
     """Delete a service from the database (only accessible by superuser)"""
@@ -67,7 +71,6 @@ def delete_service_admin(request, id):
         return redirect("home")
 
     service = get_object_or_404(Service, id=id)
-    
     # Delete the service from the database
     service.delete()
 
