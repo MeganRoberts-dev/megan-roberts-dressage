@@ -48,8 +48,26 @@
                         <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"
                             href="{% url 'contact' %}">Contact</a>
                     </li>
-                </ul>
-            </div>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}"
+                    href="{% url 'profile' %}">My Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link {% if request.resolver_match.url_name == 'account_login' %}active{% endif %}"
+                    href="{% url 'account_login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if request.resolver_match.url_name == 'account_signup' %}active{% endif %}"
+                    href="{% url 'account_signup' %}">Sign Up</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
             <div class="navbar-icons">
                 <div class="d-flex align-items-center">
                     <a href="https://www.facebook.com/meganrobertsdressage/" class="text-dark me-3" target="_blank">
@@ -99,7 +117,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <!-- stripe -->
-<script src="https://js.stripe.com/v3/"></script>
+    <script src="https://js.stripe.com/v3/"></script>
 </body>
 
 </html>
