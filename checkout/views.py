@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib import messages
 from .models import Service, Order, Booking
 import stripe
+from django.contrib.auth.decorators import login_required
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
