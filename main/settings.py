@@ -15,25 +15,14 @@ from pathlib import Path
 if os.path.exists('env.py'):
     import env
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = os.environ.get('SECRET_KEY', 'insecure-dev-key')
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
-
-ALLOWED_HOSTS = []
-CSRF_TRUSTED_ORIGINS = []
-host = os.environ.get('HOST')
-if host:
-    ALLOWED_HOSTS.append(host)
-    CSRF_TRUSTED_ORIGINS.append(f'https://{host}')
+ALLOWED_HOSTS = ['8000-meganrobert-meganrobert-sfifzk4in6p.ws-eu118.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-meganrobert-meganrobert-sfifzk4in6p.ws-eu118.gitpod.io']
 
 # Application definition
 
@@ -48,6 +37,7 @@ INSTALLED_APPS = [
     'services',
     'contact',
     'checkout',
+    'profiles',
     'crispy_forms',
     'crispy_bootstrap5',
     'django.contrib.sites',
@@ -112,6 +102,9 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/profile/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
