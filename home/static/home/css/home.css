@@ -52,7 +52,55 @@ span {
   }
   
   .hero-section .overlay .btn:hover {
-    background-color: #007bff;
+    background-color: #ffffff;
+    color:#333;
+  }
+  
+  /* --- Services */ 
+  .services-preview-section {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .services-bg-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .services-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+  }
+  
+  .services-preview-section .container {
+    position: relative;
+    z-index: 2;
+  }
+  .service-btn {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: #6dadf1;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .service-btn:hover {
+    background-color: #fafafa;
+    text-decoration: none;
+    color:#333;
   }
   
   /* --- Map --- */
@@ -203,3 +251,5 @@ span {
     padding: 0;
     margin: 0;
   }
+  
+  
