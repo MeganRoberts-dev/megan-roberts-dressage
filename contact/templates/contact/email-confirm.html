@@ -1,29 +1,15 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+<html>
+<head>
+    <title>Enquiry with Megan Roberts Dressage</title>
+</head>
+<body>
+    <h1>Thank You for Your Enquiry!</h1>
+    <p>Hi {{ full_name }},</p>
+    <p>This is your courtesy email from Megan Roberts Dressage.</p>
+    <p>Please allow 2-3 working days for a response. If you have questions in the meantime, do not hesitate to contact us again.</p>
 
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
-{% endblock %}
-
-    <div class="container">
-        <!-- Header with Logo or Image -->
-        <div class="header">
-            <img src="{% static 'img/donnie.jpeg' %}" alt="Email confirmation">
-        </div>
-
-        <!-- Content Box with Message -->
-        <div class="content-box">
-            <p>Dear {{ user_name }},</p>
-            <p>Thank you! Your email was successfully sent, you will recieve confirmation soon.</p>
-            <p>Please allow 2-3 working days for a response, if you have questions in the meantime, do not hesitate to contact again.</p>
-
-            <!-- Image Section (optional) -->
-            <img src="https://www.example.com/thank-you-image.jpg" alt="Thank You" style="width: 100%; max-width: 300px; height: auto; margin-top: 20px;">
-
-            <p>Meg x</p>
-
-            <!-- Button to return to Home -->
-            <a href="{% url 'home' %}" class="btn">Return to Home</a>
-        </div>
-        {% endblock %}
+    <p>See you soon!</p>
+    <p>Best regards,<br>
+    <strong>Meg x</strong></p>
+</body>
+</html>

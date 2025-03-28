@@ -6,9 +6,11 @@ from django.template.loader import render_to_string
 from .models import Contact
 from .forms import ContactForm
 
+
 def email_confirm(request):
     """ A view to display the email confirmation page """
     return render(request, 'contact/email-confirm.html')
+
 
 def contact(request):
     """ A view to return the contact page """
@@ -33,7 +35,7 @@ def contact(request):
                 '',
                 from_email,
                 to_email,
-                html_message=html_content  # Include the HTML content here
+                html_message=html_content
             )
 
             # Show success message
@@ -42,9 +44,8 @@ def contact(request):
                 "Thank you! Your email was successful. "
                 "You will receive a confirmation email soon. Meg x"
             )
-            
-            # Redirect to the confirmation page
-            return redirect(reverse('email-confirm'))  # Redirect to 'email-confirm' URL
+
+        return redirect(reverse('email-confirm'))
 
         messages.error(request, "Error, please try again.")
 
@@ -53,4 +54,3 @@ def contact(request):
         "contact_form": contact_form,
     }
     return render(request, template, context)
-

@@ -2,9 +2,23 @@
 {% load static %}
 
 {% block content %}
-  <h1>Order Confirmation</h1>
-  <p>Your order has been successfully placed!</p>
-  <p><strong>Order Number:</strong> {{ order.order_number }}</p>
-  <p><strong>Total:</strong> ${{ order.grand_total }}</p>
-  <p>Thank you for your order. You will receive an email confirmation shortly.</p>
+
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+  <div class="success text-start" style="max-width: 600px;">
+    <h1>Order Confirmation</h1>
+    <p>Your order has been successfully placed!</p>
+
+    <p><strong>Order Number:</strong> {{ order.id }}</p>
+    {% for booking in order.bookings.all %}
+    <p><strong>Service:</strong>{{ booking.service.name }}</p>
+    <p><strong>Chosen Date:</strong> {{ booking.date }}</p>
+    <p><strong>Chosen Time:</strong> {{ booking.time }}</p>
+    {% endfor %}
+    <p><strong>Total:</strong> £{{ order.total }}</p>
+
+    <p>Thank you for your order. You will receive an email confirmation soon.</p>
+  </div>
+</div>
+
 {% endblock %}
+

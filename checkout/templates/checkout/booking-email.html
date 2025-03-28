@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Confirmation</title>
+</head>
+<body>
+    <h1>Thank You for Your Booking!</h1>
+    <p>Hi {{ full_name }},</p>
+    <p>This is your confirmation for your booking with Megan Roberts Dressage.</p>
+
+    <h3>Booking Details:</h3>
+    <p><strong>Order Number:</strong> {{ order_number }}</p>
+    <ul>
+        {% for booking in services %}
+        <li>
+            <strong>Service:</strong> {{ booking.service.name }}<br>
+            <strong>Date:</strong> {{ booking.date }}<br>
+            <strong>Time:</strong> {{ booking.time }}
+        </li>
+        {% endfor %}
+    </ul>
+    <p><strong>Total Paid:</strong> £{{ total_price }}</p>
+
+    <p>See you soon!</p>
+    <p>Best regards,<br><strong>Megan Roberts Dressage</strong></p>
+</body>
+</html>

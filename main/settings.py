@@ -17,12 +17,22 @@ if os.path.exists('env.py'):
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'insecure-dev-key')
 
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-ALLOWED_HOSTS = ['8000-meganrobert-meganrobert-sfifzk4in6p.ws-eu118.gitpod.io']
-CSRF_TRUSTED_ORIGINS = ['https://8000-meganrobert-meganrobert-sfifzk4in6p.ws-eu118.gitpod.io']
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.environ.get('DEBUG', False)
+
+ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = []
+host = os.environ.get('HOST')
+if host:
+    ALLOWED_HOSTS.append(host)
+    CSRF_TRUSTED_ORIGINS.append(f'https://{host}')
 
 # Application definition
 
@@ -33,11 +43,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'django.contrib.sites',
     'home',
     'services',
     'contact',
     'checkout',
-    'profiles',
     'crispy_forms',
     'crispy_bootstrap5',
     'django.contrib.sites',
@@ -55,6 +72,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 
 ]
 
@@ -82,18 +100,18 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', 
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+
             ],
         },
     },
 ]
 
-AUTHENTICATION_BACKENDS = ( 
-    'django.contrib.auth.backends.ModelBackend', 
-    'allauth.account.auth_backends.AuthenticationBackend', 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -173,7 +191,7 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Stripe
-STRIPE_CURRENCY = 'gdp'
+STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')

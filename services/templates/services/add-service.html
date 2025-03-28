@@ -1,36 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
 <head>
   <link rel="stylesheet" type="text/css" href="{% static 'services/css/styles.css' %}">
 </head>
-<div class="container small-dark-form-container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <h2 class="text-center mb-4">Add New Service</h2>
 
-      <!-- Messages -->
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<body data-bs-theme="dark">
+
+  <!-- Flexbox Container to Center Content -->
+  <div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="container small-dark-form-container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h2 class="text-center mb-4">Add New Service</h2>
+
+          <!-- Messages -->
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          {% endif %}
+
+          <!-- Form -->
+          <div class="card dark-form-card">
+            <form method="post" novalidate enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ service_form.as_p }}
+              <button type="submit" class="btn btn-primary w-100 mt-3">Add Service</button>
+            </form>
           </div>
-        {% endfor %}
-      {% endif %}
-
-      <!-- Form -->
-      <div class="card dark-form-card">
-        <form method="post" novalidate>
-          {% csrf_token %}
-          {{ service_form.as_p }}
-          <button type="submit" class="btn btn-primary w-100 mt-3">Add Service</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+</body>
 
 {% endblock %}
-
 

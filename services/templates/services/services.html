@@ -1,75 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'services/css/services.css' %}">
-</head>
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services/css/services.css' %}">
+{% endblock %}
+
 <section id="pricing" class="pricing-content section-padding">
     <div class="container">
-        <!-- Title Section -->
         <div class="section-title-left mt-5">
-            <h2>The services I offer</h2>
+            <h1 class="mb-4">The services I offer<span>.</span></h1>
             <p>Please <a href="{% url 'contact' %}">contact me</a> if you require further information.</p>
-            <hr class="title-underline">
+            <hr style="border: 1px solid #333; width: 100%; margin: 40px auto 20px;">
         </div>
 
-        <!-- Pricing Cards -->
         <div class="row text-center">
             {% for service in services %}
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="pricing_design">
-                    <!-- Image in Card -->
-                    <img src="{% static 'img/arena-1.jpeg' %}" alt="{{ service.name }}" class="card-image">
-                    
-                    <!-- Title over the image -->
-                    <div class="price-head">
-                        <h2>{{ service.name }}</h2>
-                    </div>
-
-                    <!-- Pricing Details (Initially Hidden) -->
-                    <div class="pricing-details">
-                        <h2 class="fs-1">£{{ service.price }}</h2>
-                        <span>{{ service.duration }}</span>
-                        <!-- Trigger the modal -->
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal{{ service.id }}">
-                            Book Now
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal for selecting date and time -->
-            <div class="modal fade" id="bookingModal{{ service.id }}" tabindex="-1" aria-labelledby="bookingModalLabel{{ service.id }}" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="bookingModalLabel{{ service.id }}">Book {{ service.name }}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="col-lg-4 col-sm-6 col-xs-12">
+                    <div class="pricing_design">
+                        <div class="price-head">
+                            <h3>{{ service.name }}</h3>
                         </div>
-                        <!-- Modal Form -->
-                        <form action="{% url 'checkout' service.id %}" method="POST">
+                        <img src="{% if 'placeholder' not in service.image.url %}{{ service.image.url }}{% else %}{% static 'img/default-image.jpg' %}{% endif %}" 
+                             alt="{{ service.name }}" class="card-image">
+                        <div class="pricing-details">
+                            <h5 class="fs-3">£{{ service.price }}</h5>
+                            <span class="fs-7">{{ service.duration }}</span>
+                            <a href="{% url 'checkout' service_id=service.id %}" class="btn btn-primary mt-3">Proceed to Checkout</a>
+                        </div>
+                    </div>
+
+                    {% if user.is_authenticated and user.is_superuser %}
+                    <div class="admin-buttons mt-3">
+                        <a href="{% url 'edit_service' service.id %}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{% url 'delete_service_admin' service.id %}" method="POST" style="display: inline;">
                             {% csrf_token %}
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="date{{ service.id }}" class="form-label">Select Date</label>
-                                    <input type="date" id="date{{ service.id }}" name="date" class="form-control" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="time{{ service.id }}" class="form-label">Select Time</label>
-                                    <input type="time" id="time{{ service.id }}" name="time" class="form-control" required>
-                                </div>
-                            </div>
-                            <!-- Modal Footer -->
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
-                            </div>
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                         </form>
                     </div>
+                 {% endif %}
                 </div>
-            </div>
+            {% empty %}
+                <div class="col">
+                    No Services Found
+                </div>
             {% endfor %}
         </div>
     </div>
 </section>
+
 {% endblock %}

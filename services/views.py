@@ -13,9 +13,6 @@ def services(request):
     }
     return render(request, template, context)
 
-def service_list(request):
-    services = Service.objects.all()
-    return render(request, 'services/service_list.html', {'services': services})
 
 @login_required
 def add_service(request):
@@ -24,8 +21,8 @@ def add_service(request):
         messages.error(request, "Access denied: Invalid credentials")
         return redirect("home")
 
-    service_form = ServiceForm(request.POST or None)
     if request.method == "POST":
+        service_form = ServiceForm(request.POST or None, request.FILES)
         if service_form.is_valid():
             service_form.save()
             messages.success(request, "Service Added!")
@@ -33,6 +30,7 @@ def add_service(request):
 
         messages.error(request, "Error: Please try again")
 
+    service_form = ServiceForm(request.POST or None)
     template = 'services/add-service.html'
     context = {
         'service_form': service_form,
@@ -66,13 +64,15 @@ def edit_service(request, id):
 
 
 @login_required
-def delete_service(request, id):
-    """Delete an existing service as superuser"""
+def delete_service_admin(request, id):
+    """Delete a service from the database (only accessible by superuser)"""
     if not request.user.is_superuser:
         messages.error(request, "Access denied: Invalid credentials")
         return redirect("home")
 
     service = get_object_or_404(Service, id=id)
+    # Delete the service from the database
     service.delete()
-    messages.success(request, "Service Deleted!")
+
+    messages.success(request, f"Service '{service.name}' has been deleted.")
     return redirect('services')

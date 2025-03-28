@@ -3,7 +3,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+  }
+
+span {
+    color: #6dadf1 !important;
+  }
 
 html, body {
   height: 100%;
@@ -20,16 +24,6 @@ body > footer {
 
 .content {
   flex-grow: 1;
-}
-
-/* Footer styles */
-.footer {
-  background-color: #212529;
-  padding: 30px 0;
-  width: 100%;
-  color: #ffffff;
-  text-align: center;
-  margin-top: auto;
 }
 
 /* --- Navbar --- */
@@ -99,7 +93,25 @@ nav.navbar {
 }
 
 .navbar-toggler:hover {
-  color: #6dadf1;
+  background-color: white;
+}
+
+.burger {
+  background-color: #6dadf1;
+  height: 3px;
+  width: 25px;
+  margin: 5px 0;
+  display: block;
+}
+
+/* --- Footer styles --- */
+.footer {
+  background-color: #212529;
+  padding: 30px 0;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  margin-top: auto;
 }
 
 /* --- Responsive Styles --- */
