@@ -3,7 +3,7 @@
 {% block content %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
 {% endblock %}
 
 <div class="home-container">
@@ -18,75 +18,79 @@
     </div>
   </section>
 
- <!-- INTRODUCTION SECTION -->
-<section class="intro-section py-5">
-  <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-9">
-        <h2 class="mb-4">Welcome</h2>
-        <p class="lead">
-          I'm Megan — a professional dressage rider and coach based in North Wales, working with riders and horses across the UK. My focus is on producing horses with care, coaching riders with clarity, and creating partnerships built on trust, feel and solid foundations.
-        </p>
-        <p>
-          My journey began on a stud farm in Wales, surrounded by native ponies and strong family traditions. From breaking and backing Welsh Section Cs, to competing at international youth level, every stage has shaped the rider I am today — grounded in experience, and constantly learning.
-        </p>
-        <p>
-          Over the years, I’ve worked with a wide range of horses — from sharp young ponies to international dressage types — and have learned how important it is to meet each horse as an individual. During my time in the Cotswolds, I was introduced to new approaches to groundwork and horse psychology, which deepened my understanding of communication, timing, and patience.
-        </p>
-        <p>
-          Learning from techniques such as those taught by Tristan Tucker helped refine the way I work with horses, particularly those who are anxious, tense, or struggling to cope. These tools didn’t replace my foundations — they strengthened them. Now, whether I’m schooling, coaching, or backing a youngster, my aim is always to create relaxed, confident horses who enjoy their work.
-        </p>
-        <p>
-          My approach is kind, consistent and horse-first — shaped by traditional values, international experience, and a deep belief that the best riders never stop learning.
-        </p>
-        <a href="{% url 'about' %}" class="btn btn-outline-secondary mt-3">Read My Story</a>
+  <!-- INTRODUCTION SECTION -->
+  <section class="intro-section py-5">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-9">
+          <h2 class="mb-4">Welcome</h2>
+          <p class="lead">
+            I'm Megan — a professional dressage rider and coach based in North Wales, working with riders and horses
+            across the UK. I focus on producing horses with care, coaching with clarity, and building partnerships based
+            on trust and feel.
+          </p>
+          <p>
+            My journey began on a Welsh stud farm, surrounded by native ponies and family tradition. From backing Welsh
+            Section Cs to riding on international youth teams, each chapter has shaped the horsewoman I am today.
+          </p>
+          <p>
+            Along the way, I’ve worked with everything from sharp ponies to high-level dressage horses, learning to
+            treat each as an individual. Time spent in the Cotswolds deepened my understanding of groundwork, timing,
+            and horsemanship.
+          </p>
+          <p>
+            Inspired by approaches like those of Tristan Tucker, I’ve developed a calm, consistent method — especially
+            valuable when working with young or anxious horses. My aim is always to create relaxed, confident horses who
+            enjoy their work.
+          </p>
+          <p>
+            My values are simple: be kind, stay curious, and put the horse first — always.
+          </p>
+          <a href="{% url 'about' %}" class="btn btn-outline-secondary mt-3">Read My Story</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SERVICES SECTION -->
-<section class="services-preview-section position-relative text-white text-center">
-  <img src="{% static 'img/hero-img.jpeg' %}" alt="Megan Roberts riding a dressage horse" class="services-bg-img">
-  <div class="services-overlay"></div>
-  <div class="container position-relative">
-    <h2 class="mb-4">What I Offer</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-4 mb-3">
-        <h5>Coaching</h5>
-        <p>Tailored dressage coaching to improve confidence, feel and performance at any level.</p>
+  <!-- SERVICES SECTION -->
+  <section class="services-preview-section position-relative text-white text-center">
+    <img src="{% static 'img/hero-img.jpeg' %}" alt="Megan Roberts riding a dressage horse" class="services-bg-img">
+    <div class="services-overlay"></div>
+    <div class="container position-relative">
+      <h2 class="mb-4">What I Offer</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-3">
+          <h5>Coaching</h5>
+          <p>Tailored dressage coaching to improve confidence, feel and performance at any level.</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Horse Production</h5>
+          <p>From backing to show prep — developing horses with softness, structure and clarity.</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Groundwork</h5>
+          <p>In-hand work to build confidence and understanding — creating calmer horses from the ground
+            up.</p>
+        </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <h5>Horse Production</h5>
-        <p>From backing to show prep — developing horses with softness, structure and clarity.</p>
-      </div>
-      <div class="col-md-4 mb-3">
-        <h5>Groundwork</h5>
-        <p>In-hand work to build confidence, softness, and understanding — creating calmer, more connected horses from the ground up.</p>
-      </div>
+      <a href="{% url 'services' %}" class="btn service-btn mt-3 px-4 py-2">View Full Services</a>
     </div>
-    <a href="{% url 'services' %}" class="btn service-btn mt-3 px-4 py-2">View Full Services</a>
-  </div>
-</section>
+  </section>
 
   <!-- MAP SECTION -->
   <section class="map-section py-5">
     <div class="container text-center">
       <h2 class="mb-3">Location</h2>
-      <p class="mb-4">Based in the Conwy Valley, North Wales. Freelance coaching and clinics available across the UK.</p>
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4776.852620374873!2d-3.8103087499999995!3d53.22813395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486519445e1dc32b%3A0x8125cfa40a3f67fe!2sPenrhyd%20Rd%2C%20Tal-y-cafn%2C%20Colwyn%20Bay%20LL28%205RW!5e0!3m2!1sen!2suk!4v1734686889573!5m2!1sen!2suk" 
-          width="1000" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
+      <p class="mb-4">Based in the Conwy Valley, North Wales. Coaching and livery available here.</p>
+      <div class="map-container ratio ratio-16x9">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4776.852620374873!2d-3.8103087499999995!3d53.22813395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486519445e1dc32b%3A0x8125cfa40a3f67fe!2sPenrhyd%20Rd%2C%20Tal-y-cafn%2C%20Colwyn%20Bay%20LL28%205RW!5e0!3m2!1sen!2suk!4v1734686889573!5m2!1sen!2suk"
+          allowfullscreen=""
+          loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
     </div>
   </section>
-
 </div>
-
 {% endblock %}

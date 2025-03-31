@@ -3,72 +3,109 @@
 {% block content %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
 {% endblock %}
 
-<section class="about-me py-5 mt-5">
+<section class="about-me-section py-5 mt-5">
   <div class="container">
-    <div class="row align-items-start">
-      <!-- About Me Image -->
-      <div class="col-md-6">
-        <div class="card">
-          <img src="{% static 'img/about-hero-img.jpeg' %}" class="card-img-left" alt="About Me Image">
-        </div>
-      </div>
+    <!-- About Title -->
+    <div class="text-center mb-5">
+      <h1 class="fw-bold">About Me</h1>
+      <p class="lead">My story in the saddle — from muddy ponies in Wales to international dressage arenas.</p>
+    </div>
 
-      <!-- About Me Text -->
+    <!-- Early Years -->
+    <div class="row align-items-center mb-5">
       <div class="col-md-6">
-        <!-- About Me Section -->
-        <div class="card text-left p-4 mb-5">
-          <h1 class="mb-4">About Me</h1>
-          <p class="lead">
-            I am a dedicated dressage rider with a deep passion for horses and training. 
-            With over a decade of experience in the equestrian world,
-            I have worked with horses at all levels, from young horses to advanced Grand Prix. 
-            My approach to training is patient and compassionate, 
-            always focusing on the horse's well-being and development.
-            Whether competing or teaching, I am committed to excellence and continuous growth in the sport of dressage.
-          </p>
-        </div>
-        
-        <!-- Accomplishments Section -->
-        <section class="accomplishments-section">
-          <h3 class="text-left mb-4">Accomplishments</h3>
-          <div class="row">
-            <!-- Card 2 (side by side with Card 3) -->
-            <div class="col-md-6 mb-3">
-              <div class="card p-4">
-                <i class="bi bi-shield-check fs-2 text-primary"></i>
-                <h5 class="mt-3">Dedicated Rider</h5>
-                <p>More than 10 years working within the industry, grooming and riding at Olympic and International yards.</p>
-              </div>
-            </div>
-            <!-- Card 3 (side by side with Card 2) -->
-            <div class="col-md-6 mb-3">
-              <div class="card p-4">
-                <i class="bi bi-trophy fs-2 text-primary"></i>
-                <h5 class="mt-3">Expert Trainer</h5>
-                <p>In-depth training experience in developing horses to top-level competition standards.</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <!-- Card 1 (on top, under About Me section) -->
-            <div class="col-12 mb-3">
-              <div class="card p-4">
-                <i class="bi bi-award fs-2 text-primary"></i>
-                <h5 class="mt-3">Award-Winning</h5>
-                <p>Recognized in multiple national-level dressage competitions.</p>
-              </div>
-            </div>
-          </div>
-        </section>        
+        <img src="{% static 'img/young-me-shetland.jpeg' %}" alt="Megan on a Shetland pony" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h3>Where It All Began</h3>
+        <p>
+          Horses have always been part of my world. I grew up on a stud farm in North Wales, where both sides of my family bred and trained horses — from racehorses to Welsh Section Cs. I was on a Shetland pony before I could properly walk, and began backing ponies from a young age. Those early days gave me a deep-rooted love of horsemanship and a solid, traditional foundation.
+        </p>
       </div>
     </div>
 
+    <!-- Rising Through the Ranks -->
+    <div class="row align-items-center mb-5 flex-md-row-reverse">
+      <div class="col-md-6">
+        <img src="{% static 'img/dartmoor-show.jpeg' %}" alt="Megan with show pony" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h3>My First Breakthrough</h3>
+        <p>
+          At 10, I was given the opportunity to loan a Dartmoor show pony — and I proudly represented Wales. That experience sparked my love for dressage. I began riding under the guidance of Anita Jones, and qualified for <strong>Badminton Grassroots</strong>, going on to win <strong>Burghley Event Pony</strong>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Youth Development -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6">
+        <img src="{% static 'img/team-gb.jpeg' %}" alt="Megan in British Dressage youth squad" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h3>British Dressage Journey</h3>
+        <p>
+          I was selected for the <strong>British Dressage Progress Programme</strong> at 14 and eventually joined the <strong>British youth teams</strong>. These were the core years that shaped me — filled with national-level competitions, incredible teammates, and unforgettable learning experiences.
+        </p>
+      </div>
+    </div>
+
+    <!-- Professional Development -->
+    <div class="row align-items-center mb-5 flex-md-row-reverse">
+      <div class="col-md-6">
+        <img src="{% static 'img/germany-training.jpeg' %}" alt="Training in Germany" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h3>International Experience</h3>
+        <p>
+          At 15, I moved to Germany to work with Jörn Kubelke, gaining insight into European training systems. Then at 17, I joined <strong>Lucy and Daniel Bremner</strong> in the Cotswolds, where I truly developed my skills riding and caring for top dressage horses. Their mentorship helped me step confidently into FEI Junior and Young Rider levels.
+        </p>
+      </div>
+    </div>
+
+    <!-- Philosophy & Today -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6">
+        <img src="{% static 'img/groundwork.jpeg' %}" alt="Megan doing groundwork" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h3>Groundwork & Horsemanship</h3>
+        <p>
+          My time with horses like these taught me that real riding starts from the ground. Learning from methods like those taught by Tristan Tucker helped me refine my approach — especially when working with sensitive or misunderstood horses. Groundwork, patience, and trust are at the core of everything I do.
+        </p>
+      </div>
+    </div>
+
+    <!-- BD Young Pro + Today -->
+    <div class="row align-items-center mb-5 flex-md-row-reverse">
+      <div class="col-md-6">
+        <img src="{% static 'img/young-pros.jpeg' %}" alt="British Dressage Young Professionals" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h3>Where I Am Now</h3>
+        <p>
+          I’m now based back in North Wales, producing horses, coaching riders, and continuing to learn. I’ve completed my <strong>UKCC Level 2</strong>, was chosen for the <strong>British Dressage Young Professionals Programme</strong>, and performed as part of the <strong>BD Quadrille Team</strong> — even riding in front of Her Majesty the Queen.
+        </p>
+      </div>
+    </div>
+
+    <!-- Quote Highlight -->
+    <div class="row mb-5">
+      <div class="col text-center">
+        <blockquote class="blockquote">
+          <p class="mb-0">“My approach is kind, consistent, and horse-first — shaped by tradition, international experience, and a belief that the best riders never stop learning.”</p>
+        </blockquote>
+      </div>
+    </div>
+
+
+
     <!-- Carousel Section (Separate Row) -->
-    <div class="row mt-5">
-      <div class="col-12 carousel-container">
+   <div class="row mt-5 pt-3">
+  <div class="col-12 carousel-container">
         <!-- Bootstrap carousel -->
         <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
           <!-- Indicators at bottom -->

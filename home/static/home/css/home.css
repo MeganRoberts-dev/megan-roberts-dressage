@@ -11,7 +11,8 @@ span {
   
   .hero-section img {
     width: 100%;
-    height: 110vh !important;
+    height: auto;
+    max-height: 100vh;
     object-fit: cover;
     object-position: center center;
   }
@@ -55,15 +56,37 @@ span {
     background-color: #ffffff;
     color:#333;
   }
+  @media (max-width: 768px) {
+    .hero-section .overlay {
+      align-items: center;
+      padding: 80px 20px 40px;
+      text-align: center;
+    }
+  
+    .hero-section .overlay h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+  
+    .hero-section .overlay h4 {
+      font-size: 1.1rem;
+    }
+  
+    .hero-section .overlay .btn {
+      font-size: 1rem;
+      padding: 8px 16px;
+    }
+  }
   
   /* --- Services */ 
   .services-preview-section {
-    height: 400px;
+    min-height: 450px; 
     overflow: hidden;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2rem 1rem;
   }
   
   .services-bg-img {
@@ -104,11 +127,23 @@ span {
   }
   
   /* --- Map --- */
+  .map-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  
   .map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   }
-
 
  /* --- ABOUT PAGE --- */
 /* --- About Me Section --- */
@@ -188,68 +223,84 @@ span {
     font-size: 1rem;
     line-height: 1.5;
   }
-  
   /* --- Carousel Section --- */
-  .carousel {
-    height: 90vh; 
-    position: relative;
-  }
-  
-  .carousel-inner {
-    height: 100%;
-  }
-  
+.carousel {
+  position: relative;
+  width: 100%;
+  max-height: 600px; /* Desktop max */
+  overflow: hidden;
+}
+
+.carousel-inner {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  max-height: 600px;
+}
+
+/* Responsive image size on smaller screens */
+@media (max-width: 768px) {
   .carousel-item img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover; 
-    object-position: center; 
+    max-height: 300px;
   }
-  
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-  }
-  
-  .carousel-control-prev,
-  .carousel-control-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-  }
-  
-  .carousel-control-prev:hover,
-  .carousel-control-next:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-    transition: background-color 0.3s ease;
-  }
-  
-  .carousel-indicators button {
-    background-color: #6dadf1;
-    border-radius: 50%;
-    width: 12px;
-    height: 12px;
-  }
-  
-  .carousel-indicators .active {
-    background-color: #004C8C;
-  }
-  
-  .carousel-container {
-    padding: 0;
-    margin: 0;
-  }
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s ease;
+}
+
+.carousel-indicators {
+  bottom: 10px;
+}
+
+.carousel-indicators button {
+  background-color: #6dadf1;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.carousel-indicators .active {
+  background-color: #004C8C;
+}
+
+.carousel-container {
+  margin-top: 3rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
   
   

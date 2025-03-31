@@ -93,7 +93,7 @@ nav.navbar {
 }
 
 .navbar-toggler:hover {
-  background-color: white;
+  background-color: rgb(63, 62, 62);
 }
 
 .burger {
