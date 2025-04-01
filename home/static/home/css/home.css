@@ -156,7 +156,11 @@ span {
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
+    padding-top: 150px;
+
   }
+ 
+
   .card {
     border: none;
     margin-bottom: 2px; 
@@ -174,11 +178,12 @@ span {
     margin-top: 10px; 
   }
   
-  .about-me h1 {
+  .about-me-section h1 {
     font-family: 'Poppins', sans-serif;
     font-weight: 350;
     color: #333;
-    margin-top: 80px; 
+    margin-top: 40px; 
+    padding-top: 5px;
   }
   
   .about-me .lead {
