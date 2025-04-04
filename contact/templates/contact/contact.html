@@ -6,76 +6,65 @@
 <link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
 {% endblock %}
 
-<div class="container py-5 contact-section">
+<div class="container contact-section py-5 mt-5">
   <div class="row justify-content-center">
+    
     <!-- Section Title -->
     <div class="col-12 text-center">
-      <h2 class="mt-5">Contact me for enquiries</h2>
-      <hr style="border: 1px solid #333; width: 40%; margin: 40px auto 20px;">
+      <h1 class="fw-bold">Contact Me for Enquiries</h1>
+      <hr class="mx-auto" style="border: 1px solid #333; width: 40%; margin: 40px auto 20px;">
     </div>
 
-    <!-- Side-by-Side Layout -->
+    <!-- Content Area -->
     <div class="col-md-10">
-      <div class="row">
-        <!-- Text Column -->
+      <div class="row g-5 align-items-start">
+        
         <div class="col-md-6">
-          <div class="contact-card">
-            <h4>A note :-</h4>
-            <p style="font-size: 1.2rem;">
-              <br>
-              I truly appreciate any questions or queries you may have,
-              as clear communication about our horses is essential.
-              <br>
-              If there's anything I can do to assist or clarify,
-              please don't hesitate to reach out.
+          <div class="post-it p-4 h-100">
+            <h4>A Note :-</h4>
+            <p class="fs-5 mt-3">
+              I truly appreciate any questions or queries you may have,  
+              as clear communication about our horses is essential.  
+              <br><br>
+              If there's anything I can do to assist or clarify,  
+              please don't hesitate to reach out.  
               I'm here to help in any way I can.
             </p>
-              <br>
-              <br>
-              <h4>Meg x</h4>
+            <h4 class="mt-4">Meg x</h4>
           </div>
         </div>
 
         <!-- Contact Form Column -->
         <div class="col-md-6">
-          <div class="contact-form-card">
+          <div class="contact-form-card p-4 bg-white border rounded shadow-sm h-100">
             <form action="{% url 'contact' %}" method="post">
               {% csrf_token %}
-              <div class="card-body">
-                <h4 class="card-title contact-form-btn mt-3 mb-3">Details</h4>
-                <div class="row g-3">
-                  <div class="col">
-                    <input type="text" class="form-control" name="first_name" placeholder="First name"
-                      aria-label="First name" required>
-                  </div>
-                  <div class="col">
-                    <input type="text" class="form-control" name="last_name" placeholder="Last name"
-                      aria-label="Last name" required>
-                  </div>
+              <h4 class="mb-4">Your Details</h4>
+
+              <div class="row g-3 mb-3">
+                <div class="col">
+                  <input type="text" class="form-control" name="first_name" placeholder="First name" required>
                 </div>
-                <div class="row g-3">
-                  <div class="col">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
-                  </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="last_name" placeholder="Last name" required>
                 </div>
-                <div class="row g-3">
-                  <div class="col">
-                    <label for="comments" class="form-label">Comments</label>
-                    <textarea class="form-control" name="comments" id="comments" rows="3" required></textarea>
-                  </div>
-                </div>
-                <button type="submit" class="btn btn-primary contact-form-btn mt-3 mb-3">Send</button>
               </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="comments" class="form-label">Comments</label>
+                <textarea class="form-control" name="comments" id="comments" rows="4" required></textarea>
+              </div>
+
+              <button type="submit" class="btn w-100">Send</button>
             </form>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Thank You Section -->
-    <div class="col-12 text-center mt-4">
-      <h3 class="text-blue">Thank You!</h3>
     </div>
   </div>
 </div>
