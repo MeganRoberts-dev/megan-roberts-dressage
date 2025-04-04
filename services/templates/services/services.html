@@ -1,52 +1,59 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'services/css/services.css' %}">
 {% endblock %}
 
-<section id="pricing" class="pricing-content section-padding">
-    <div class="container">
-        <div class="section-title-left mt-5">
-            <h1 class="fw-bold">The services I offer</h1>
-            <p>Please <a style="color: #6dadf1; "href="{% url 'contact' %}">contact me</a> if you require further information.</p>
-            <hr style="border: 1px solid #6dadf1; width: 100%; margin: 40px auto 20px;">
-        </div>
+{% block content %}
+<div class="container services-section py-5 mt-5">
+    <div class="text-center mb-5">
+      <h1 class="fw-bold">The Services I Offer</h1>
+      <p>
+        Please 
+        <a href="{% url 'contact' %}" style="color: #6dadf1;">contact me</a> 
+        if you require further information.
+      </p>
+      <hr style="border-top: 2px solid #6dadf1; width: 60px; margin: 20px auto;">
+    </div>
 
-        <div class="row text-center">
+        <div class="row justify-content-center">
             {% for service in services %}
-                <div class="col-lg-4 col-sm-6 col-xs-12">
-                    <div class="pricing_design">
-                        <div class="price-head">
-                            <h3>{{ service.name }}</h3>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img 
+                            src="{% if 'placeholder' not in service.image.url %}{{ service.image.url }}{% else %}{% static 'img/default-image.jpg' %}{% endif %}" 
+                            alt="{{ service.name }}" 
+                            class="card-img-top" 
+                            style="height: 240px; object-fit: cover;"
+                        >
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title">{{ service.name }}</h5>
+                                <p class="card-text">
+                                    <strong>Price:</strong> £{{ service.price }} <br>
+                                    <strong>Duration:</strong> {{ service.duration }}
+                                </p>
+                            </div>
+                            <a href="{% url 'checkout' service_id=service.id %}" class="btn btn-secondary w-100 mt-3">Proceed to Checkout</a>
                         </div>
-                        <img src="{% if 'placeholder' not in service.image.url %}{{ service.image.url }}{% else %}{% static 'img/default-image.jpg' %}{% endif %}" 
-                             alt="{{ service.name }}" class="card-image">
-                        <div class="pricing-details">
-                            <h5 class="fs-3">£{{ service.price }}</h5>
-                            <span class="fs-7">{{ service.duration }}</span>
-                            <a href="{% url 'checkout' service_id=service.id %}" class="btn btn-primary mt-3">Proceed to Checkout</a>
+                        {% if user.is_authenticated and user.is_superuser %}
+                        <div class="card-footer bg-light text-center">
+                            <a href="{% url 'edit_service' service.id %}" class="btn btn-sm btn-warning me-2">Edit</a>
+                            <form action="{% url 'delete_service_admin' service.id %}" method="POST" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
                         </div>
+                        {% endif %}
                     </div>
-
-                    {% if user.is_authenticated and user.is_superuser %}
-                    <div class="admin-buttons mt-3">
-                        <a href="{% url 'edit_service' service.id %}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="{% url 'delete_service_admin' service.id %}" method="POST" style="display: inline;">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
-                    </div>
-                 {% endif %}
                 </div>
             {% empty %}
-                <div class="col">
-                    No Services Found
+                <div class="text-center">
+                    <p class="lead">No services found at the moment. Please check back later.</p>
                 </div>
             {% endfor %}
         </div>
     </div>
 </section>
-
 {% endblock %}
