@@ -4,6 +4,18 @@
   padding-bottom: 50px;
   background-color: #fff;
 }
+.page-wrapper {
+  padding-top: 120px; /* ensures space from fixed navbar */
+  padding-bottom: 60px;
+  min-height: 80vh; /* optional: ensures content isn't cramped */
+}
+
+.page-section {
+  margin: auto;
+  max-width: 1200px;
+  padding: 0 15px;
+}
+
 /* Section Title Left Alignment */
 .section-title-left {
   text-align: left;
