@@ -14,4 +14,3 @@ class CheckoutForm(forms.ModelForm):
                 attrs={'class': 'form-control', 'placeholder': 'Email Address'}
             ),
         }
-
