@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django.contrib.sites',
     'home',
-    'about',
     'services',
     'contact',
     'checkout',
