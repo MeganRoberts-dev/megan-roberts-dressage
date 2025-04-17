@@ -5,13 +5,13 @@
 </head>
 <body>
     <h1>Thank You for Your Booking!</h1>
-    <p>Hi {{ full_name }},</p>
+    <p>Hi {{ order.full_name }},</p>
     <p>This is your confirmation for your booking with Megan Roberts Dressage.</p>
 
     <h3>Booking Details:</h3>
-    <p><strong>Order Number:</strong> {{ order_number }}</p>
+    <p><strong>Order Number:</strong> {{ order.order_number }}</p>
     <ul>
-        {% for booking in services %}
+        {% for booking in bookings %}
         <li>
             <strong>Service:</strong> {{ booking.service.name }}<br>
             <strong>Date:</strong> {{ booking.date }}<br>
@@ -19,7 +19,7 @@
         </li>
         {% endfor %}
     </ul>
-    <p><strong>Total Paid:</strong> £{{ total_price }}</p>
+    <p><strong>Total Paid:</strong> £{{ order.total }}</p>
 
     <p>See you soon!</p>
     <p>Best regards,<br><strong>Megan Roberts Dressage</strong></p>
