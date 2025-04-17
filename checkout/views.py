@@ -12,6 +12,7 @@ import stripe
 
 from .models import Order, Booking
 from services.models import Service
+from profiles.models import UserProfile
 
 
 @require_POST
@@ -54,11 +55,15 @@ def checkout(request, service_id):
             currency=settings.STRIPE_CURRENCY,
         )
 
+        if request.user.is_authenticated:
+            profile = UserProfile.objects.get(user=request.user)
+
         context = {
             'service': service,
             'stripe_public_key': stripe_public_key,
             'stripe_secret_key': stripe_secret_key,
             'client_secret': intent.client_secret,
+            'profile': profile,
         }
         return render(request, 'checkout/checkout.html', context)
 
@@ -88,6 +93,9 @@ def checkout(request, service_id):
             date=date,
             time=time
         )
+
+        if request.user.is_authenticated:
+            profile = UserProfile.objects.get(user=request.user)
 
         return redirect(reverse('success', kwargs={'order_id': order.id}))
 
