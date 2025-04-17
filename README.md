@@ -135,62 +135,67 @@ I have used `Mermaid` to generate an interactive ERD of my project.
 
 ```mermaid
 erDiagram
-    User {
-        string username
+    User ||--o{ Order : places
+    Order ||--o{ Booking : contains
+    Booking }o--|| Service : books
+    User ||--|| UserProfile : has
+    Order {
+        int id PK
+        int purchaser_id FK
+        string full_name
         string email
-        string password
+        decimal total
+        datetime created_at
     }
-
+    Booking {
+        int id PK
+        int order_id FK
+        int service_id FK
+        date date
+        time time
+    }
     Service {
-        int id
+        int id PK
         string name
         text description
         int price
         string duration
-        string image
+        image image
     }
-
     Contact {
-        int id
+        int id PK
         string first_name
         string last_name
         string email
         text comments
         datetime date
     }
-
-    Order {
-        int id
-        string full_name
+    User {
+        int id PK
+        string username
+        string first_name
+        string last_name
         string email
-        decimal total
-        datetime created_at
     }
-
-    Booking {
-        int id
-        date date
-        time time
+    UserProfile {
+        int id PK
+        int user_id FK
+        string first_name
+        string last_name
     }
-
-    User ||--o{ Order : "places"
-    Order ||--o{ Booking : "contains"
-    Service ||--o{ Booking : "is booked"
-
 ```
 ### Explanation:
 1. **Entities**:
-   - The entities `User`, `Service`, `Contact`, `Order`, and `Booking` correspond to the Django models.
+   - The entities `User`, `UserProfile`, `Service`, `Contact`, `Order`, and `Booking` correspond to the Django models.
 2. **Relationships**:
    - `User` places `Order`.
    - `Order` contains multiple `Booking` entries.
    - `Service` is referenced in `Booking`.
 
-source: [Mermaid](https://mermaid.live/edit#pako:eNqVVcFu2zAM_RVD57RIHLdpfRs6DBg2bB2GXYYAhmIxjlBZcimqqdvk3yfbSVPHceP5kBh8TyRFPtKvLDUCWMwAP0ueIc_nOvDPHwsYvDbv1SM1BVIE998OpieO6Ypj4DxV8xy6CORcqq654NauDYoG2c71IeQ9mqVUMDCygCV3ipJiZTQk2uULwH6WJQSghAuBYO1kKDHsJ5JZ68Rgkkoq-1mpcfojvDCWqiac8YDliXoFm83FxWbTql0crLhNfEX2xDtOkBksB1b1dC-XKEELVSYH-C0TH1m4lAb6tw_uXFCCZ_K3tynKgqTRB2RhjKrvZ-UL2INdQCpzroICZQpdM3KSOuuG9WAGicN3Kq1NzW_PNauam82hrHGwAGV0Zr0g9tyfKAYPkKm4vfJdOqWS_5uvD8ehJabWsV4dfqzzs3N1dp6OJ0T4ypLMoX7pNlOAkk-ApZ8LS124KScZ4qoL-g2nxTFYy82gzKTmKlnw7OQdZAFJIY-3Vt3o71LDV4L8TMMr06Pjmlp13KemvBPpnRxn99afRn618k8lsddlO6NmG-Rcl6fy3R3ZK7tfyTtie890yT9gbRUQDdb-Owm_3ebOaOKD18mg0ag7nHv1daf6y6dfAyM9OrDtbVS75dqu94O2ZSOWA_rgwn9Ta7dzRivwKbLYvwqOD3M21xWPOzK_S52ymNDBiLmikvvuK8ziJVfWWwuuWfzKnlk8jSaXN9ez8HoyHc_C8TiajVjJ4ovp5XUUTqMovLqdXd2Et-FsO2Ivxngfk8vxZBpGkT_m_zxW-_tbY01QNC5b7YJt_wE0ZoQj)
+source: [Mermaid](https://mermaid.live/edit#pako:eNqlVMFu4yAQ_RWLcxI1sYMdH9tVLz1spaqXVaSIxRMH1QZrDKu2if99B9vZxG7aRloOCOY9Zt4MA3smTQYsZYA_lMhRlGsd0HiuAYPDYTo1--AnZrRJg6oQEuoO72w94daYF6VzokijrVC6Jx3tjZlOD4fgCfCPkkC03wTUo0BE8OtHNFtVeNJODGLtu40fSttAZcHjw9BUOZR0CHBD4P0ZWFv0MrauKDZalPABgVKo4mTNQKpSFIE1VpybhQWrSggkAi2zjbAd2AzT_V6p8RmNVXqg7ko0hnzkdjqZWiF-Gkg4lvhrCX3Ww1JYeLWUeS1RVVYZPaotktsPHjKHYsQtRQ7dPBB25xtD2uuEbRXW9vJNFeIzZHSHbTrSlCVoW1-4w1M1m7NGvEqeI-ZFCf-r-0zJ8Rl830vui4a_Wg9FZhNWApKYjH6DNuya2R0Qg6W0zAS-rNlaN8QTzpqnNy1ZatHBhLnKV7P_P1i6FUVN1kpolu7ZK0tX0SwM-WK5DDmPonmcTNgbSzmfJTzhPIwXPFrNb1bNhL0bQw5uZsky5qsoXMRJOF_wJGy9_WrBLiQal-_-hcrRq-4R0PS47ozTlqVx3PwFirR4YQ)
 
 > [!NOTE]
-
-I have used `pygraphviz` and `django-extensions` to auto-generate an ERD.
+> I have used `pygraphviz` and `django-extensions` to auto-generate an ERD.
 
 The steps taken were as follows:
 - In the terminal: `sudo apt update`
