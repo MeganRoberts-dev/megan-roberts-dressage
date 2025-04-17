@@ -23,7 +23,7 @@
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card h-100 shadow-sm border-0">
                         <img 
-                            src="{% if 'placeholder' not in service.image.url %}{{ service.image.url }}{% else %}{% static 'img/default-image.jpg' %}{% endif %}" 
+                            src="{% if 'placeholder' not in service.image.url %}{{ service.image.url }}{% else %}{% static 'img/no-image.webp' %}{% endif %}" 
                             alt="{{ service.name }}" 
                             class="card-img-top" 
                             style="height: 240px; object-fit: cover;"
@@ -40,11 +40,30 @@
                         </div>
                         {% if user.is_authenticated and user.is_superuser %}
                         <div class="card-footer bg-light text-center">
+                            <!-- edit service -->
                             <a href="{% url 'edit_service' service.id %}" class="btn btn-sm btn-warning me-2">Edit</a>
-                            <form action="{% url 'delete_service_admin' service.id %}" method="POST" class="d-inline">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                            </form>
+                            <!-- delete service -->
+                            <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-service-{{ service.id }}">Delete</button>
+                            <!-- confirm deletion (modal) -->
+                            <div class="modal fade" id="modal-delete-service-{{ service.id }}" tabindex="-1" aria-labelledby="modal-delete-service-{{ service.id }}-label" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2 class="modal-title fs-5" id="modal-delete-service-{{ service.id }}-label">Delete Service</h2>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete {{ service.name }}?
+                                            <br>
+                                            <small class="text-muted">This is permanent and cannot be undone.</small>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                                            <a href="{% url 'delete_service_admin' service.id %}" class="btn btn-success">Yes</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         {% endif %}
                     </div>
