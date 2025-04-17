@@ -12,7 +12,7 @@
     <div class="checkout-card mx-auto">
         <!-- Service Info Section (Left) -->
         <div class="service-info">
-            <img src="{% if service.image %}{{ service.image.url }}{% else %}{% static 'img/default-image.jpg' %}{% endif %}"
+            <img src="{% if 'placeholder' not in service.image.url %}{{ service.image.url }}{% else %}{% static 'img/no-image.webp' %}{% endif %}"
                 alt="Service Image">
             <span>Service: {{ service.name }}</span>
             <div class="price-section">
@@ -30,11 +30,11 @@
 
             <!-- Full Name Input -->
             <label for="full_name">Full Name:</label>
-            <input type="text" id="full_name" name="full_name" required>
+            <input type="text" id="full_name" name="full_name" value="{{ profile.first_name }} {{ profile.last_name }}" required>
 
             <!-- Email Input -->
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" value="{{ profile.user.email }}" required>
 
             <!-- Date Input -->
             <label for="date">Choose Date:</label>
