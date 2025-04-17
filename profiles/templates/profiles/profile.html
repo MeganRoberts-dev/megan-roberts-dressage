@@ -1,10 +1,60 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="d-flex justify-content-center align-items-center" style="min-height: 60vh; text-align: center;">
-  <div>
-    <h2>Welcome, {{ user.username }}!</h2>
-    <p>This is your profile page.</p>
+<div class="container mt-5 pt-5">
+  <div class="row mt-5">
+    <div class="col-12 col-md-6 mx-auto text-center">
+      <h2>Welcome, {{ profile.first_name }}!</h2>
+      <p>This is your profile page.</p>
+    </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <div class="card mb-3">
+        <div class="row g-0">
+          <!-- update profile -->
+          <div class="col-md-4 bg-secondary-subtle d-flex justify-content-center align-items-center">
+            <form action="{% url 'profile' %}" method="post" class="p-3">
+              <strong>Username: </strong> {{ profile.user.username }}
+              <br><br>
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary">Update Profile</button>
+              <button type="reset" class="btn btn-danger">Reset</button>
+            </form>
+          </div>
+
+          <!-- orders -->
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Orders</h5>
+              <p class="card-text">
+                <ol class="list-group list-group-numbered">
+                  {% for booking in bookings|dictsort:"date" reversed %}
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">{{ booking.service.name }}</div>
+                          {{ booking.date }} @ {{ booking.time }}
+                      </div>
+                      <span class="badge text-bg-primary rounded-pill">£{{ booking.order.total }}</span>
+                    </li>
+                  {% empty %}
+                    <li class="list-group-item d-flex justify-content-between align-items-start">No Bookings Found</li>
+                  {% endfor %}
+                </ol>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}
