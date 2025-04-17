@@ -45,7 +45,7 @@ def contact(request):
                 "You will receive a confirmation email soon. Meg x"
             )
 
-        return redirect(reverse('email-confirm'))
+            return redirect(reverse('email-confirm'))
 
         messages.error(request, "Error, please try again.")
 
