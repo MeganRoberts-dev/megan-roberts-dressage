@@ -79,7 +79,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | Home | ![screenshot](documentation/lighthouse/lighthouse-home.png) | | Pass |
 | About | ![screenshot](documentation/lighthouse/lighthouse-about.png) | !| Some minor warnings |
 | Services | ![screenshot](documentation/lighthouse/lighthout-service.png) | Pass |
-| Form | ![screenshot](documentation/lighthouse/lighthouse-form.png) | Pass |
+| Form | ![screenshot](documentation/lighthouse/lighthouse-contact-section.png) | Pass |
 
 ## Defensive Programming
 
@@ -106,7 +106,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | --- | --- |
 | As a new site user, I would like to learn more about Megan Roberts and her expertise, so that I can feel confident in booking services. | ![screenshot](documentation/responsiveness/tablet.png) |
 | As a new site user, I would like to find the location of Megan’s training facility, so that I can plan a visit for lesson. | ![screenshot](documentation/features/map.png) |
-| As a new site user, I would like to contact Megan through a form, so that I can ask questions or request additional information. | ![screenshot](documentation/features/form.png) |
+| As a new site user, I would like to contact Megan through a form, so that I can ask questions or request additional information. | ![screenshot](documentation/features/contact-section.png) |
 | As a returning site user, I would like to securely pay for my booking through Stripe, so that I feel confident in the safety of my transaction. | ![screenshot](documentation/features/stripe.png) |
 | As a returning site user,  I would like to quickly book additional services, so that I can easily schedule future lessons.  | ![screenshot](documentation/features/services.png) |
 | As a site administrator, I would like to update service details and pricing, so that clients always have accurate information. | ![screenshot](documentation/features/edit-admin.png) |

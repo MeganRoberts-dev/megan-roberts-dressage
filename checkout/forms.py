@@ -5,7 +5,7 @@ from .models import Order
 class CheckoutForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ['full_name', 'email', 'phone_number']
+        fields = ['full_name', 'email']
         widgets = {
             'full_name': forms.TextInput(
                 attrs={'class': 'form-control', 'placeholder': 'Full Name'}

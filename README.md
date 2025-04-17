@@ -77,12 +77,15 @@ I've used [Figma](https://www.figma.com/board/l2P9ZpD1xivVZg4eyKb2yn/Megan-Rober
 
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
+| Home | The site has an inviting home page, with clear information, directive buttons and location map. | ![screenshot](documentation/features/home.png) ![screenshot](documentation/features/home-page.png) ![screenshot](documentation/features/about-home.png) ![screenshot](documentation/features/home-page.png) ![screenshot](documentation/features/location.png)|
 | Service Details | Displays detailed information about a selected product, including its name, description, price, an image, and available sizes. | ![screenshot](documentation/features/services.png) |
 | Proceed to checkout | Users can view the contents of their service or remove item. | ![screenshot](documentation/features/checkout-delete.png) |
 | Checkout | Users can checkout as guests, provide their delivery details and payment information using Stripe integration. | ![screenshot](documentation/features/checkout.png) |
 | Order Confirmation | Users receive an on-screen and email confirmation with details of their purchase. | ![screenshot](documentation/features/order-confirm.png) |
 | Product Management | Superusers can add, edit, and delete products from the site via a CRUD interface. | ![screenshot](documentation/features/admin-delete.png) ![screenshot](documentation/features/admin-edit.png) |
-| Contact | Users can submit a message via the contact form, which stores their name, email, and message in the database. | ![screenshot](documentation/features/form.png) |
+| About Page | There is a clear and immersive about page, with picture carousel. | ![screenshot](documentation/features/about-page.png) ![screenshot](documentation/features/about-page-2.png) ![screenshot](documentation/features/carousel.png)|
+| Contact | Users can submit a message via the contact form, which stores their name, email, and message in the database and will trigger an automated email. | ![screenshot](documentation/features/contact-section.png) ![screenshot](documentation/features/email.png) |
+| Login, Sign up and Profile Page | There is an option for users to sign up, login and access a prfoile page and handles all secuirty credentials correctly through DJango. | ![screenshot](documentation/features/login-details.png) ![screenshot](documentation/features/sign-up-details.png) ![screenshot](documentation/features/wrong-login.png)|
 | Heroku Deployment | The site is deployed to Heroku, making it accessible online for users. | ![screenshot](documentation/features/heroku.png) |
 
 ### Future Features
