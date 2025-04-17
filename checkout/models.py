@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 from services.models import Service
+
 
 class Order(models.Model):
     purchaser = models.ForeignKey(
@@ -12,12 +14,12 @@ class Order(models.Model):
     full_name = models.CharField(
         max_length=255,
         null=True,
-        blank=False
-    )
+        blank=True
+    )  # Optional full name for guest users
     email = models.EmailField(
         null=True,
-        blank=False
-    )
+        blank=True
+    )  # Optional email for guest users
     total = models.DecimalField(
         max_digits=10,
         decimal_places=2
@@ -25,7 +27,8 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Order #{self.id} - {self.purchaser.email if self.purchaser else self.email}"
+        return f"Order #{self.id} - {self.purchaser.email}"
+
 
 class Booking(models.Model):
     order = models.ForeignKey(
@@ -41,4 +44,6 @@ class Booking(models.Model):
     time = models.TimeField()
 
     def __str__(self):
-        return f"Booking for {self.service.name} on {self.date} at {self.time}"
+        return (
+            f"Booking for {self.service.name} on {self.date} at {self.time}"
+        )
