@@ -129,8 +129,6 @@ I've used [Figma](https://www.figma.com/board/l2P9ZpD1xivVZg4eyKb2yn/Megan-Rober
 
 Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models. Understanding the relationships between different tables can save time later in the project.
 
-![screenshot](documentation/erd.png)
-
 I have used `Mermaid` to generate an interactive ERD of my project.
 
 ```mermaid
@@ -245,18 +243,18 @@ Deployment steps are as follows, after account setup:
 | --- | --- |
 | `DATABASE_URL` | user-inserts-own-postgres-database-url |
 | `DISABLE_COLLECTSTATIC` | 1 (*this is temporary, and can be removed for the final deployment*) |
-| `EMAIL_HOST_PASS` | user-inserts-own-gmail-api-key |
-| `EMAIL_HOST_USER` | user-inserts-own-gmail-email-address |
+| `GMAIL_KEY` | user-inserts-own-gmail-api-key |
+| `GMAIL_EMAIL` | user-inserts-own-gmail-email-address |
 | `SECRET_KEY` | any-random-secret-key |
 | `STRIPE_PUBLIC_KEY` | user-inserts-own-stripe-public-key |
 | `STRIPE_SECRET_KEY` | user-inserts-own-stripe-secret-key |
-| `STRIPE_WH_SECRET` | user-inserts-own-stripe-webhook-secret |
+| `CLOUDINARY_URL` | user-inserts-own-cloudinary-api-key |
+| `HOST` | user-inserts-own-deployed-host-url |
 
 Heroku needs three additional files in order to deploy properly.
 
 - [requirements.txt](requirements.txt)
 - [Procfile](Procfile)
-- [runtime.txt](runtime.txt)
 
 You can install this project's **[requirements.txt](requirements.txt)** (*where applicable*) using:
 
@@ -270,11 +268,6 @@ The **[Procfile](Procfile)** can be created with the following command:
 
 - `echo web: gunicorn app_name.wsgi > Procfile`
 - *replace `app_name` with the name of your primary Django app name; the folder where `settings.py` is located*
-
-The **[runtime.txt](runtime.txt)** file needs to know which Python version is being used:
-1. type: `python3 --version` in the terminal.
-2. in the **[runtime.txt](runtime.txt)** file, add your Python version:
-	- `python-3.12.3`
 
 For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
 
@@ -320,16 +313,6 @@ Once you've created a Stripe account and logged-in, follow these series of steps
 	- `STRIPE_PUBLIC_KEY` = Publishable Key (starts with **pk**)
 	- `STRIPE_SECRET_KEY` = Secret Key (starts with **sk**)
 
-As a backup, in case users prematurely close the purchase-order page during payment, we can include Stripe Webhooks.
-
-- From your Stripe dashboard, click **Developers**, and select **Webhooks**.
-- From there, click **Add Endpoint**.
-	- `https://megan-roberts-dressage-48ee9d19dcc1.herokuapp.com/checkout/wh/`
-- Click **receive all events**.
-- Click **Add Endpoint** to complete the process.
-- You'll have a new key here:
-	- `STRIPE_WH_SECRET` = Signing Secret (Wehbook) Key (starts with **wh**)
-
 ### Gmail API
 
 This project uses [Gmail](https://mail.google.com) to handle sending emails to users for purchase order confirmations.
@@ -350,8 +333,21 @@ Once you've created a Gmail (Google) account and logged-in, follow these series 
 - You'll be provided with a 16-character password (API key).
     - Save this somewhere locally, as you cannot access this key again later!
     - If your 16-character password contains *spaces*, make sure to remove them entirely.
-    - `EMAIL_HOST_PASS` = user's 16-character API key
-    - `EMAIL_HOST_USER` = user's own personal Gmail email address
+    - `GMAIL_KEY` = user's 16-character API key
+    - `GMAIL_EMAIL` = user's own personal Gmail email address
+
+### Cloudinary API
+
+This project uses the [Cloudinary API](https://cloudinary.com) to store media assets online, due to the fact that Heroku doesn't persist this type of data.
+
+To obtain your own Cloudinary API key, create an account and log in.
+
+- For "Primary Interest", you can choose **Programmable Media for image and video API**.
+- *Optional*: edit your assigned cloud name to something more memorable.
+- On your Cloudinary Dashboard, you can copy your **API Environment Variable**.
+- Be sure to remove the leading `CLOUDINARY_URL=` as part of the API **value**; this is the **key**.
+    - `cloudinary://123456789012345:AbCdEfGhIjKlMnOpQrStuVwXyZa@1a2b3c4d5)`
+- This will go into your own `env.py` file, and Heroku Config Vars, using the **key** of `CLOUDINARY_URL`.
 
 ### WhiteNoise
 
@@ -394,15 +390,14 @@ Sample `env.py` file:
 ```python
 import os
 
-os.environ.setdefault("AWS_ACCESS_KEY_ID", "user-inserts-own-aws-access-key-id")
-os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "user-inserts-own-aws-secret-access-key")
+os.environ.setdefault("CLOUDINARY_URL", "user-inserts-own-cloudinary-api-key")
 os.environ.setdefault("DATABASE_URL", "user-inserts-own-postgres-database-url")
-os.environ.setdefault("EMAIL_HOST_PASS", "user-inserts-own-gmail-host-api-key")
-os.environ.setdefault("EMAIL_HOST_USER", "user-inserts-own-gmail-email-address")
+os.environ.setdefault("GMAIL_KEY", "user-inserts-own-gmail-host-api-key")
+os.environ.setdefault("GMAIL_EMAIL", "user-inserts-own-gmail-email-address")
 os.environ.setdefault("SECRET_KEY", "any-random-secret-key")
+os.environ.setdefault("HOST", "user-inserts-own-host-url")
 os.environ.setdefault("STRIPE_PUBLIC_KEY", "user-inserts-own-stripe-public-key")
 os.environ.setdefault("STRIPE_SECRET_KEY", "user-inserts-own-stripe-secret-key")
-os.environ.setdefault("STRIPE_WH_SECRET", "user-inserts-own-stripe-webhook-secret")  # only if using Stripe Webhooks
 
 # local environment only (do not include these in production/deployment!)
 os.environ.setdefault("DEBUG", "True")
