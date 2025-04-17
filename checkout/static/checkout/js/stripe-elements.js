@@ -10,6 +10,7 @@ var form = document.getElementById('checkout-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
   $('#submit-button').attr('disabled', true);
+  $('#submit-button').css({ 'background-color': '#ccc', 'color': 'black' });
   var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
   var postData = {
     'csrfmiddlewaretoken': csrfToken,
