@@ -48,6 +48,10 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 | checkout | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/checkout/views.py) | ![screenshot](documentation/validation/pylint/checkout/checkout-views.png) | |
 | checkout | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/checkout/models.py) | ![screenshot](documentation/validation/pylint/checkout/checkout-models.png) | |
 | checkout | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/checkout/forms.py) | ![screenshot](documentation/validation/pylint/checkout/checkout-forms.png) | |
+| profiles | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/profiles/urls.py) | ![screenshot](documentation/validation/pylint/profiles/profiles-urls.png) | |
+| profiles | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/profiles/views.py) | ![screenshot](documentation/validation/pylint/profiles/profiles-views.png) | |
+| profiles | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/profiles/models.py) | ![screenshot](documentation/validation/pylint/profiles/profiles-models.png) | |
+| profiles | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/profiles/forms.py) | ![screenshot](documentation/validation/pylint/profiles/profiles-forms.png) | |
 ## Browser Compatibility
 
 I've tested my deployed project on multiple browsers to check for compatibility issues.
