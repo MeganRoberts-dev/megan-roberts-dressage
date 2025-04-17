@@ -55,7 +55,10 @@ def checkout(request, service_id):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        profile = UserProfile.objects.get(user=request.user) if request.user.is_authenticated else None
+        if request.user.is_authenticated:
+            profile = UserProfile.objects.get(user=request.user)
+        else:
+            profile = None
 
         context = {
             'service': service,
