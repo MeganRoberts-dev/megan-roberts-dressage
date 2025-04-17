@@ -120,70 +120,44 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 I have conducted a series of automated tests on my application.
 
-I fully acknowledge and understand that, in a real-world scenario, an extensive set of additional tests would be more comprehensive.
+> [!NOTE]
+> I fully acknowledge and understand that, in a real-world scenario, an extensive set of additional tests would be more comprehensive.
 
-### JavaScript (Jest Testing)
+### Python (Unit Testing)
 
-I have used the [Jest](https://jestjs.io) JavaScript testing framework to test the application functionality.
+⚠️ INSTRUCTIONS ⚠️
 
-In order to work with Jest, I first had to initialize NPM.
+Adjust the code below (file names, function names, etc.) to match your own project files/folders. Use these notes loosely when documenting your own Python Unit tests, and remove/adjust where applicable.
 
-- `npm init`
-- Hit `enter` for all options, except for **test command:**, just type `jest`.
+⚠️ SAMPLE ⚠️
 
-Add Jest to a list called **Dev Dependencies** in a dev environment:
+I have used Django's built-in unit testing framework to test the application functionality. In order to run the tests, I ran the following command in the terminal each time:
 
-- `npm install --save-dev jest`
+- `python3 manage.py test name-of-app`
 
-**IMPORTANT**: Initial configurations
+To create the coverage report, I would then run the following commands:
 
-When creating test files, the name of the file needs to be `file-name.test.js` in order for Jest to properly work.
+- `pip3 install coverage`
+- `pip3 freeze --local > requirements.txt`
+- `coverage run --omit=*/site-packages/*,*/migrations/*,*/__init__.py,env.py,manage.py test`
+- `coverage report`
 
-Without the following, Jest won't properly run the tests:
+To see the HTML version of the reports, and find out whether some pieces of code were missing, I ran the following commands:
 
-- `npm install -D jest-environment-jsdom`
+- `coverage html`
+- `python3 -m http.server`
 
-Due to a change in Jest's default configuration, you'll need to add the following code to the top of the `.test.js` file:
+Below are the results from the full coverage report on my application that I've tested:
 
-```js
-/**
- * @jest-environment jsdom
- */
+![screenshot](documentation/automation/html-coverage.png)
 
-const { test, expect } = require("@jest/globals");
-const { function1, function2, function3, etc. } = require("../script-name");
+#### Unit Test Issues
 
-beforeAll(() => {
-    let fs = require("fs");
-    let fileContents = fs.readFileSync("index.html", "utf-8");
-    document.open();
-    document.write(fileContents);
-    document.close();
-});
-```
+⚠️ INSTRUCTIONS ⚠️
 
-Remember to adjust the `fs.readFileSync()` to the specific file you'd like you test.
-The example above is testing the `index.html` file.
+Use this section to list any known issues you ran into while writing your Python unit tests. Remember to include screenshots (where possible), and a solution to the issue (if known). This can be used for both "fixed" and "unresolved" issues. Remove this sub-section entirely if you somehow didn't run into any issues while working with your tests.
 
-Finally, at the bottom of the script file where your primary scripts are written, include the following at the bottom of the file.
-Make sure to include the name of all of your functions that are being tested in the `.test.js` file.
-
-```js
-if (typeof module !== "undefined") module.exports = {
-    function1, function2, function3, etc.
-};
-```
-
-Now that these steps have been undertaken, further tests can be written, and be expected to fail initially.
-Write JS code that can get the tests to pass as part of the Red-Green refactor process.
-
-Once ready, to run the tests, use this command:
-
-- `npm test`
-
-**NOTE**: To obtain a coverage report, use the following command:
-
-- `npm test --coverage`
+⚠️ --- END --- ⚠️
 
 ## Bugs
 
