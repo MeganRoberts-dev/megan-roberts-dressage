@@ -13,13 +13,13 @@ class Order(models.Model):
     )
     full_name = models.CharField(
         max_length=255,
-        null=True,
-        blank=True
-    )  # Optional full name for guest users
+        null=False,
+        blank=False
+    )
     email = models.EmailField(
-        null=True,
-        blank=True
-    )  # Optional email for guest users
+        null=False,
+        blank=False
+    )
     total = models.DecimalField(
         max_digits=10,
         decimal_places=2
@@ -27,7 +27,7 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Order #{self.id} - {self.purchaser.email}"
+        return f"Order #{self.id} - {self.email}"
 
 
 class Booking(models.Model):
