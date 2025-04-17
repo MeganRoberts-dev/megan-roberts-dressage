@@ -10,7 +10,7 @@
 
     <p><strong>Order Number:</strong> {{ order.id }}</p>
     {% for booking in order.bookings.all %}
-    <p><strong>Service:</strong>{{ booking.service.name }}</p>
+    <p><strong>Service:</strong> {{ booking.service.name }}</p>
     <p><strong>Chosen Date:</strong> {{ booking.date }}</p>
     <p><strong>Chosen Time:</strong> {{ booking.time }}</p>
     {% endfor %}
