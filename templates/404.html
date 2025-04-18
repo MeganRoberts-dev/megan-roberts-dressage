@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5 pt-5 h-100">
+    <div class="row h-100 mt-5">
+        <div class="col-12 col-md-10 mx-auto text-center">
+            <h1 class="display-4 logo-font text-black">404 – Whoa There, Partner!</h1>
+            <div class="my-3 fs-4">
+                Looks like this page took off at a full gallop and left us in the dust.
+                <br>
+                Maybe it jumped the wrong fence or got spooked by a rogue pixel.
+                <br>
+                Either way, it's not here.
+                <br>
+                Try trotting back to the Home Page or check the reins on your URL.
+            </div>
+            <div class="my-5">
+                <h4>
+                    <a href="{% url 'home' %}" class="btn btn-dark btn-lg rounded-2 text-uppercase py-3">Return Home</a>
+                </h4>
+            </div>
+            <div class="my-3">
+                Remember: even the best riders take a wrong turn now and then — it's all part of the Journey!
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
