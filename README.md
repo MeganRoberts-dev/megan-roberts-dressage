@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/MeganRoberts-dev/megan-roberts-dressage)](https://github.com/MeganRoberts-dev/megan-roberts-dressage/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/MeganRoberts-dev/megan-roberts-dressage)](https://github.com/MeganRoberts-dev/megan-roberts-dressage)
 
-### Welcome to the World of Dressage
+### Welcome to my World!
 
 Step into the elegant world of dressage with me — a sleek, professional platform I’ve personally created to showcase my career in dressage and my new skills as a developer. Over the past year, I’ve been learning software development, mastering HTML, CSS, Python, JavaScript, and the Django framework, and this app is the culmination of that journey. 
 
