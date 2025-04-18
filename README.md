@@ -19,11 +19,11 @@ The vibrant “About” section shares my dressage journey—my achievements, my
 **Smart Communication Features:**  
 Reach out easily with the contact system and receive instant email responses, blending professionalism with convenience.
 
-**Simple Location Details:**  
-Plan your visit with ease, thanks to integrated location information.
+**Personal Dashboard for Bookings:**
+Sign up or log in to access your own dashboard—where you can view past and upcoming bookings, making it easy to stay organized and in control of your sessions.
 
 **Why This Matters**  
-This platform is more than just a website—it’s a reflection of my dedication to both dressage and software development. It’s about blending my two loves - equestrian sport and cutting-edge technology, creating a space that’s inspiring, functional, and personal. Whether you're an equestrian enthusiast or curious about dressage, this platform is designed to connect and inspire. Built with heart, passion, and code — this is Megan Roberts Dressage.
+This platform is more than just a website—it’s a reflection of my dedication to both the sport that, due to an accident,  got me into and software development. It’s about blending my two loves - equestrian sport and cutting-edge technology, creating a space that’s inspiring, functional, and personal. Whether you're an equestrian enthusiast or curious about dressage, this platform is designed to connect and inspire. Built with heart, passion, and code — this is Megan Roberts Dressage.
 
 
 ![screenshot](documentation/mockup.png)
