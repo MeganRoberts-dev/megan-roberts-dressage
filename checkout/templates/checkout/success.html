@@ -17,8 +17,11 @@
     <p><strong>Total:</strong> £{{ order.total }}</p>
 
     <p>Thank you for your order. You will receive an email confirmation soon.</p>
+
+    <div class="mt-4">
+      <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+    </div>
   </div>
 </div>
 
 {% endblock %}
-

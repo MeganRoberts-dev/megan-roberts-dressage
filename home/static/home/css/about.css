@@ -2,8 +2,8 @@
   /* --- ABOUT PAGE --- */
 /* --- About Me Section --- */
 .page-wrapper {
-    padding-top: 120px; /* ensures space from fixed navbar */    padding-bottom: 60px;
-    min-height: 80vh; /* optional: ensures content isn't cramped */
+    padding-top: 120px; padding-bottom: 60px;
+    min-height: 80vh; 
   }
   
   .page-section {

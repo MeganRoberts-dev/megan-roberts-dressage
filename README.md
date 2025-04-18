@@ -485,4 +485,4 @@ This project has been a significant milestone in my journey, and I’m genuinely
 
 First and foremost, I want to thank my Code Institute mentor, [Tim Nelson](https://www.github.com/TravelTimN). Tim, your guidance, patience, and thoughtful advice throughout this project has been invaluable. You consistently encourage me to aim higher and think more critically, and for that, I am truly grateful, you've had big impact on my life. I’d also like to thank the [Code Institute](https://codeinstitute.net) Tutor Team for their expertise and help with debugging and overcoming roadblocks along the way. The [Code Institute Slack community](https://code-institute-room.slack.com) deserves a mention too, the support and motivation I found there during challenging moments really kept me moving forward. Finally, a heartfelt thank you to my partner for their constant encouragement and belief in me, and to my employer for supporting me through this course alonsidge work.
 
-This project wouldn’t have been possible without these amazing people — thank you! 
+This project wouldn’t have been possible without these amazing people — thank you!` 
