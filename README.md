@@ -11,7 +11,7 @@ Step into the elegant world of dressage with me — a sleek, professional platfo
 ### What Makes It Special?
 
 **A Seamless Booking Experience with Secure Payments:**  
-Booking sessions is effortless with a smooth checkout system powered by Stripe, ensuring secure and hassle-free transactions.
+You can book a session effortlessly with a smooth checkout system powered by Stripe, ensuring secure and hassle-free transactions.
 
 **A Personal Touch:**  
 The vibrant “About” section shares my dressage journey—my achievements, my passion, and the artistry of this sport—brought to life with stunning visuals.
@@ -23,7 +23,7 @@ Reach out easily with the contact system and receive instant email responses, bl
 Sign up or log in to access your own dashboard—where you can view past and upcoming bookings, making it easy to stay organized and in control of your sessions.
 
 **Why This Matters**  
-This platform is more than just a website—it’s a reflection of my dedication to both the sport that, due to an accident,  got me into and software development. It’s about blending my two loves - equestrian sport and cutting-edge technology, creating a space that’s inspiring, functional, and personal. Whether you're an equestrian enthusiast or curious about dressage, this platform is designed to connect and inspire. Built with heart, passion, and code — this is Megan Roberts Dressage.
+This platform is more than just a website—it’s a reflection of my dedication to both the sport that, due to an accident,  got me into and software development. It’s about blending my two loves - equestrian sport and cutting-edge technology, creating a space that’s inspiring, functional, and personal. Whether you're an equestrian enthusiast or curious about dressage, this platform is designed to connect and inspire. Built with heart, passion, and code.
 
 
 ![screenshot](documentation/mockup.png)
@@ -485,4 +485,4 @@ This project has been a significant milestone in my journey, and I’m genuinely
 
 First and foremost, I want to thank my Code Institute mentor, [Tim Nelson](https://www.github.com/TravelTimN). Tim, your guidance, patience, and thoughtful advice throughout this project has been invaluable. You consistently encourage me to aim higher and think more critically, and for that, I am truly grateful, you've had big impact on my life. I’d also like to thank the [Code Institute](https://codeinstitute.net) Tutor Team for their expertise and help with debugging and overcoming roadblocks along the way. The [Code Institute Slack community](https://code-institute-room.slack.com) deserves a mention too, the support and motivation I found there during challenging moments really kept me moving forward. Finally, a heartfelt thank you to my partner for their constant encouragement and belief in me, and to my employer for supporting me through this course alonsidge work.
 
-This project wouldn’t have been possible without these amazing people — thank you!` 
+This project wouldn’t have been possible without these amazing people — thank you!

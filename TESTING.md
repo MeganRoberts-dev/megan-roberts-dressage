@@ -48,10 +48,9 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 | checkout | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/checkout/views.py) | ![screenshot](documentation/validation/pylint/checkout/checkout-views.png) | |
 | checkout | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/checkout/models.py) | ![screenshot](documentation/validation/pylint/checkout/checkout-models.png) | |
 | checkout | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/checkout/forms.py) | ![screenshot](documentation/validation/pylint/checkout/checkout-forms.png) | |
-| profiles | urls.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/profiles/urls.py) | ![screenshot](documentation/validation/pylint/profiles/profiles-urls.png) | |
-| profiles | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/profiles/views.py) | ![screenshot](documentation/validation/pylint/profiles/profiles-views.png) | |
-| profiles | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/profiles/models.py) | ![screenshot](documentation/validation/pylint/profiles/profiles-models.png) | |
-| profiles | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/profiles/forms.py) | ![screenshot](documentation/validation/pylint/profiles/profiles-forms.png) | |
+| profiles | views.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/profiles/views.py) | ![screenshot](documentation/validation/pylint/proflies/profiles-views.png) | |
+| profiles | models.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/profiles/models.py) | ![screenshot](documentation/validation/pylint/proflies/profiles-models.png) | |
+| profiles | forms.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/megan-roberts-dressage/main/profiles/forms.py) | ![screenshot](documentation/validation/pylint/proflies/profiles-forms.png) | |
 ## Browser Compatibility
 
 I've tested my deployed project on multiple browsers to check for compatibility issues.
@@ -81,7 +80,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | Page |  Desktop | Notes |
 | --- | --- | --- |
 | Home | ![screenshot](documentation/lighthouse/lighthouse-home.png) | | Pass |
-| About | ![screenshot](documentation/lighthouse/lighthouse-about.png) | !| Some minor warnings |
+| About | ![screenshot](documentation/lighthouse/lighthouse-about.png) | There are some minor warngings, I believe this is due to the carousel, which I would improve in the future.| Some minor warnings |
 | Services | ![screenshot](documentation/lighthouse/lighthouse-service.png) | Pass |
 | Form | ![screenshot](documentation/lighthouse/lighthouse-form.png) | Pass |
 | Login | ![screenshot](documentation/lighthouse/lighthouse-login.png) | Pass |
