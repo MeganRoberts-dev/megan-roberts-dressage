@@ -97,8 +97,8 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/profile/'
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_LOGIN_METHODS = {'username', 'email'}
+ACCOUNT_SIGNUP_FIELDS = ['username*', 'email', 'password1*', 'password2*']
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 
